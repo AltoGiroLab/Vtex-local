@@ -1,0 +1,238 @@
+<!-- 
+ *
+ * Desenvolvido por Integrando.se
+ * hello@integrando.se
+ * 
+ * Bootstrap v.3
+ *
+ -->
+
+ <!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="en-us">
+ 
+ <head>
+     <title> Modelo Vtex</title>
+     <vtex:metaTags/>
+     <vtex:template id="NB-commonStyles" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <script src="https://io.vtex.com.br/portal-plugins/2.9.13/js/portal-sku-selector-with-template.min.js"></script>
+     <script src="/arquivos/kit-look.js"></script>
+ 
+     <style>
+         .kit-info .productName {
+             font-size: 16px;
+         }
+         .buy-in-page-button, .buy-in-page-quantity {
+             display:none !important;
+         }
+         .descricao-preco .valor-por {
+             font-size: 0;
+         }
+         .valor-total-em {
+             font-family: 'GibsonSemiBd';
+             font-size: 20px;
+             line-height: 32px;
+             text-transform: uppercase;
+             color: var(--color-custom-black) !important;
+             font-style: normal;
+         }
+         .productIten .remove-product input {
+             display: none;
+         }
+         
+         .productIten .remove-product {
+             position: absolute;
+             display: block;
+             right: 10px;
+             line-height: 24px;
+             z-index:1;
+         }
+         
+         .products-components {
+             height: 400px;
+             overflow: auto;
+         }
+         
+         .productIten.inactive .kit-image, .productIten.inactive .tpl-right {
+             opacity: .5;
+             -moz-opacity: .5;
+             filter: alpha(opacity=50);
+         }
+     </style>
+ 
+ </head>
+ 
+ <body id="product-page">
+ 
+     <div class="page">
+ 
+         <!--  SubTemplate: Header -->
+         <vtex:template id="NB-Header" />
+         <!-- /SubTemplate: Header -->
+                     
+         <section id="block-product-details" class="block-product-details">
+             <div class="container wrapper gap30">
+                 <div class="span7 s-span12">
+                     <div class="product-image col-xs-12 col-sm-7 col-lg-6 text-center">
+           <!--  Component: Product Images -->
+           <vtex.cmc:ProductImage/>
+                 </div><!-- .product-image -->
+                 </div>
+                 <div class="info-block-product-details span5 s-span12">
+                     <div class="product-details">
+                         <div class="product-info">
+                             <vtex.cmc:breadCrumb />
+                         <div class="maxw400">
+                             <vtex.cmc:HightLight/>
+                         </div>
+                         <vtex.cmc:productName />
+                         </div>
+ 
+                         <div class="spacer20"></div>
+                         <div class="products-components">
+                             <div class="kit clearfix product-info">
+                                 <div class="kit-info productIten" style="display:table;position: relative;z-index:0;">
+                                     <div class="remove-product">
+                                         <label for="prod1">
+                                             <i class="fa fa-minus"></i>
+                                         </label>
+                                         <input type="checkbox" id="prod1"></input>
+                                     </div>
+                                     <div class="kit-image" style="width: 25%;max-width: 125px; display: table-cell; vertical-align:top">
+                                         <vtex.cmc:ProductImage productIndex="1" />
+                                     </div>
+                                     <div class="tpl-right" style="display: table-cell; vertical-align:top; padding-left:10px; padding-bottom:40px; padding-right: 30px;">
+                                         <div class="nome-kit">
+                                             <h4 style="margin:0">
+                                                 <vtex.cmc:productName productIndex="1" />
+                                             </h4>
+                                         </div>
+                                         <div class="preco-kit">
+                                             <vtex.cmc:skuPrice productIndex="1" />
+                                         </div>
+                                         <div class="seletor-sku">
+                                             <div class="productIten__i skuSel">
+                                                 <div class="chooseProduct">
+                                                     <div class="sku-selector-container sku-selector-container-1">
+                                                         
+                                                     </div>
+                                                     <script>$('.sku-selector-container-1').skuSelector(skuJson_1, {forceInputType: 'radio', selectSingleDimensionsOnOpening: false});</script>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <!-- .seletor-sku -->
+                                         <vtex.cmc:BuyInPage productIndex="1" />
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="kit clearfix product-info">
+                                 <div class="kit-info productIten" style="display:table;position: relative;z-index:0;">
+                                     <div class="remove-product">
+                                         <label for="prod2">
+                                             <i class="fa fa-minus"></i>
+                                         </label>
+                                         <input type="checkbox" id="prod2"></input>
+                                     </div>
+                                     <div class="kit-image" style="width: 25%;max-width: 125px; display: table-cell; vertical-align:top">
+                                         <vtex.cmc:ProductImage productIndex="2" />
+                                     </div>
+                                     <div class="tpl-right" style="display: table-cell; vertical-align:top; padding-left:10px; padding-bottom:40px; padding-right: 30px;">
+                                         <div class="nome-kit">
+                                             <h4 style="margin:0">
+                                                 <vtex.cmc:productName productIndex="2" />
+                                             </h4>
+                                         </div>
+                                          <div class="preco-kit">
+                                             <vtex.cmc:skuPrice productIndex="2" />
+                                         </div>
+                                         <div class="seletor-sku">
+                                             <div class="productIten__i skuSel">
+                                                 <div class="chooseProduct">
+                                                     <div class="sku-selector-container sku-selector-container-2">
+                                                         
+                                                     </div>
+                                                     <script>$('.sku-selector-container-2').skuSelector(skuJson_2, {forceInputType: 'radio', selectSingleDimensionsOnOpening: false});</script>
+                                                 </div>
+                                             </div>
+                                         </div><!-- .seletor-sku -->
+                                         <vtex.cmc:BuyInPage productIndex="2" />
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="kit clearfix product-info">
+                                 <div class="kit-info productIten" style="display:table;position: relative;z-index:0;">
+                                     <div class="remove-product">
+                                         <label for="prod3">
+                                             <i class="fa fa-minus"></i>
+                                         </label>
+                                         <input type="checkbox" id="prod3"></input>
+                                     </div>
+                                     <div class="kit-image" style="width: 25%;max-width: 125px; display: table-cell; vertical-align:top">
+                                         <vtex.cmc:ProductImage productIndex="3" />
+                                     </div>
+                                     <div class="tpl-right" style="display: table-cell; vertical-align:top; padding-left:10px; padding-bottom:40px; padding-right: 30px;">
+                                         <div class="nome-kit">
+                                             <h4 style="margin:0">
+                                                 <vtex.cmc:productName productIndex="3" />
+                                             </h4>
+                                         </div>
+                                          <div class="preco-kit">
+                                             <vtex.cmc:skuPrice productIndex="3" />
+                                         </div>
+                                         <div class="seletor-sku">
+                                             <div class="productIten__i skuSel">
+                                                 <div class="chooseProduct">
+                                                     <div class="sku-selector-container sku-selector-container-3">
+                                                         
+                                                     </div>
+                                                     <script>$('.sku-selector-container-3').skuSelector(skuJson_3, {forceInputType: 'radio', selectSingleDimensionsOnOpening: false});</script>
+                                                 </div>
+                                             </div>
+                                         </div><!-- .seletor-sku -->
+                                         <vtex.cmc:BuyInPage productIndex="3" />
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="totalKit">
+                             <p class="preco">Valor total: <em class="valor-total-em"></em></p>
+                             <a class="finalizaKit buy-button buy-button-ref">
+                                 Adicionar à sacola
+                             </a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </section>
+         <div class="spacer80"></div>	
+         <div class="spacer180"></div>
+         <section class="bcg-gray">
+             <div class="block01-description-product container wrapper">
+                 <div class="content-block01-description-product span6 s-span12">
+                     <h2 class="title">Por que colocar na sua sacola?</h2>
+                     <div class="slider-description-product">
+                         <vtex.cmc:ProductDescription />
+                     </div>
+                 </div>
+                 <div class="image-block01-description-product">
+                     <img src="/arquivos/image1-description-product.jpg"></img>
+                 </div>
+             </div>
+         </section>
+ 
+       <section class="container">
+       <div class="showcase-default showcase-owl">
+         <vtex:contentPlaceHolder id="Quem-viu-viu-tambem" />
+       </div><!-- .showcase-default -->
+       </section>
+       <div class="spacer80"></div>
+       <vtex:template id="NB-Newsletter" />
+     <!--  SubTemplate: Footer -->
+         <vtex:template id="NB-Footer" />
+         <!-- /SubTemplate: Footer -->
+     
+     </div><!-- .container-fluid -->
+ 
+ </body>
+     <vtex:template id="NB-commonScripts" />
+ </html>

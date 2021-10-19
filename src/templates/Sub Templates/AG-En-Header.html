@@ -1,0 +1,179 @@
+<!-- 
+ *
+ * Desenvolvido por Integrando.se
+ * hello@integrando.se
+ * 
+ * Bootstrap v.3
+ *
+ -->
+
+ <header id="header">
+    
+  <div class="header-menu">
+      <div class="toolbar__header">
+          <div class="container">
+              <span>Check out </span>
+              <a href="http://www.newbeach.com.br/" target="_blank">
+                  <img src="https://altogirorc.vteximg.com.br/arquivos/newbeach-logo.png" alt="New Beach - Moda Praia"/>
+              </a>
+          </div>
+      </div>
+          
+      <div class="header-menu-container">
+          <div class="header-logo-mobile show-only-small">
+              <div class="ismobile" onclick="toggleOpenMenuMobile()">
+                  <span class="fa fa-bars"></span>
+              </div>
+      
+              <div onclick="toggleSubMenuSearch()">
+                <img src="/arquivos/icon-search.svg"></img>
+              </div>
+
+              <a href="account-wishlist" class="isdesktop">
+                <img src="/arquivos/icon-heart.svg"></img>
+              </a>
+      
+              <div class="logo">
+                <a href="/">
+                  <img src="/arquivos/logo-altogiro-mobile.svg" alt="Alto Giro"></img>
+                </a>
+              </div>
+              
+              <div class="mini-cart col-mini-cart col-xs-1 col-sm-1 col-md-3 col-lg-2 hidden-xs menu-item icon-bag">
+                  <a title="Carrinho de Compras" href="/checkout/#/cart" class="btn-mini-cart">
+                      <img src="/arquivos/icon-bag.svg"></img>
+                      <span class="label-cart mini-cart-qty-admake">0</span>
+                  </a>
+              </div>
+              
+               <div>
+                  <a href="/account"><img src="/arquivos/icon-user.svg"></img></a>
+              </div>
+          </div>
+          <div class="header-logo hide-only-small" style="max-width:200px">
+              <a href="/" title="Ir para a página inicial">
+                <img src="/arquivos/logo-altogiro.png" alt="Logo Alto Giro" class="logo"></img>
+              </a>
+          </div>
+          <nav class="nav-menu">
+          <ul class="menu-list" pwa-hook="ativar-menu">
+              <li class="menu-item"><a href="/lancamentos">Releases</a></li>
+  
+              <li class="menu-item has-sub-menu" onclick="openSubMenuMobile(this)">
+                  <a class="menu-item-title" href="/feminino" pwa-hook.click="close-menu-mobile">Feminine</a>
+                  <span class="fa fa-chevron-down ismobile"></span>
+                  <div class="submenu-list">
+                  <div class="container-submenu-list container wrapper">
+                      <div class="item-container-submenu-list span2 s-span12 active" id="subFemininoFitness">
+                          <div class="title-submenu-list" href="/feminino/fitness">Fitness <img src="/arquivos/icon-arrow-right.svg"></img></div>
+                          <ul class="list-subitens list">
+                              <li><a href="/feminino/fitness/cropped---tops" pwa-hook.click="close-menu-mobile">Cropped / Tops</a></li>
+                              <li><a href="/feminino/fitness/jaquetas---coletes" pwa-hook.click="close-menu-mobile">Jackets</a></li>
+                              <li><a href="/feminino/fitness/calcas-e-leggings" pwa-hook.click="close-menu-mobile">Pants and Leggings</a></li>
+                              <li><a href="/feminino/fitness/regatas" pwa-hook.click="close-menu-mobile">Tank Tops</a></li>
+                              <li><a href="/feminino/fitness/saias" pwa-hook.click="close-menu-mobile">Skirts</a></li>
+                              <li><a href="/feminino/fitness/t-shirts" pwa-hook.click="close-menu-mobile">T-Shirts</a></li>
+                              <li><a href="/feminino/fitness/plus-size" pwa-hook.click="close-menu-mobile">Plus Size</a></li>
+                              <li><a href="/feminino/fitness/macacao" pwa-hook.click="close-menu-mobile">Overalls</a></li>
+                              <li><a href="/feminino/fitness/shorts---bermudas" pwa-hook.click="close-menu-mobile">Shorts</a></li>
+                              <li><a href="/feminino/fitness/moletom" pwa-hook.click="close-menu-mobile">Hoodies</a></li>
+                          </ul>
+                          </div>
+                          <div class="item-container-submenu-list span2 s-span12">
+                              <div class="title-submenu-list" pwa-hook.click="close-menu-mobile" href="/feminino/ag-beach">AG Beach <img src="/arquivos/icon-arrow-right.svg"></img></div>
+                                  <ul class="list-subitens list">
+                                      <li><a href="/feminino/ag-beach/biquinis" pwa-hook.click="close-menu-mobile">Bikinis</a></li>
+                                      <li><a href="/feminino/ag-beach/maios" pwa-hook.click="close-menu-mobile">Swimsuits</a></li>
+                                      <li><a href="/feminino/ag-beach/busto--personalize-seu-look-" pwa-hook.click="close-menu-mobile">Bikini Tops</a></li>
+                                      <li><a href="/feminino/ag-beach/tangas--personalize-seu-look-" pwa-hook.click="close-menu-mobile">Bikini Bottoms</a></li>
+                                  </ul>
+                              </div>
+                              <div class="item-container-submenu-list span2 s-span12">
+                                  <div class="title-submenu-list" href="/feminino/collab">Collab <img src="/arquivos/icon-arrow-right.svg"></img></div>
+                                      <ul class="list-subitens list">
+                                          <li><a href="/feminino/collab/sabrina-sato" pwa-hook.click="close-menu-mobile">Sabrina Sato</a></li>
+                                          <li><a href="/feminino/collab/thassia-naves" pwa-hook.click="close-menu-mobile">Thassia Naves</a></li>
+                                          <li><a href="/feminino/collab/helena-schargel" pwa-hook.click="close-menu-mobile">Helena Schargel</a></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+              </li>
+  
+              <li class="menu-item has-sub-menu" onclick="openSubMenuMobile(this)">
+                  <a href="/masculino" pwa-hook.click="close-menu-mobile">Male</a>
+                  <span class="fa fa-chevron-down ismobile"></span>
+                  <div class="submenu-list">
+                      <div class="container-submenu-list container wrapper">
+                          <div class="item-container-submenu-list span3 s-span12 active" id="subFemininoFitness">
+                              <div class="title-submenu-list" href="/masculino/menswear">Menswear <img src="/arquivos/icon-arrow-right.svg"></img></div>
+                              <ul class="list-subitens list">
+                                  <li><a href="/masculino/calcas---bermudas---shorts" pwa-hook.click="close-menu-mobile">Trousers / Shorts</a></li>
+                                  <li><a href="/masculino/t-shirts---camisetas---regatas" pwa-hook.click="close-menu-mobile">T-shirts / Tank Tops</a></li>
+                                  <li><a href="/masculino/blusas---jaquetas" pwa-hook.click="close-menu-mobile">Hoodies / Jackets</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="menu-item"><a href="/feminino/fitness/acessorios">Accessories</a></li>
+              <li class="menu-item"><a href="/ag-free">AG Free</a></li>
+          </ul>
+      </nav>
+      <div class="header-menu-user">
+
+          <div class="search search-column" id="search-row">
+            <section id="search-row-click" class="search-row">
+              <form onsubmit="document.location.href = this.q.value; return false;" role="search" class="form-search">
+                <i class="icon icon-search" style="font-size: 25px;margin-top:5px;color: #ccc"></i>
+                  <vtex.cmc:fullTextSearchBox/>
+                <span class="icon icon-close" onclick="closeSubmenuSearch()">x</span>
+              </form>
+            </section>
+          </div>
+
+          <ul class="menu-list">
+            <li class="menu-item" id="btn-search" onclick="openSubmenuSearch()">
+              <img src="/arquivos/icon-search.svg"></img>
+            </li>
+            <li class="menu-item" href="/account-wishlist">
+              <img src="/arquivos/icon-heart.svg"></img>
+            </li>
+            <!--<li class="menu-item icon-bag">
+              <img src="/arquivos/icon-bag.svg"></img>
+              <span class="label-cart">0</span>
+            </li>-->
+            <li class="mini-cart col-mini-cart col-xs-1 col-sm-1 col-md-3 col-lg-2 hidden-xs menu-item icon-bag">
+              <a title="Carrinho de Compras" href="/checkout/#/cart" class="btn-mini-cart">
+                  <img src="/arquivos/icon-bag.svg"></img>
+                  <span class="label-cart mini-cart-qty-admake">0</span>
+              </a>
+              <div id="mini-cart-admake-aux" class="hidden">
+                  <vtex.cmc:miniCart />
+                  <vtex.cmc:AmountItemsInCart />
+              </div><!-- #mini-cart-admake-aux -->
+              <div id="mini-cart-admake" style="display: none;">
+                  <div class="mini-cart-header"></div>
+                  <div class="mini-cart-itens">
+                      <!-- recebe itens -->
+                  </div>
+                  <div class="mini-cart-footer">
+                      <div class="mini-cart-totais">
+                          <strong id="mini-cart-admake-total" class="pull-right"><!-- recebe valor total --></strong>
+                          <span>Total</span>
+                      </div>
+                      <div class="mini-cart-botao">
+                          <a href="/checkout/#/cart" class="btn btn-block btn-verde btn-finalizar-compra">Close Order</a>
+                      </div>
+                  </div>
+              </div><!-- .mini-cart -->
+              <div id="overlay-minicart-admake" class="lf-cart__darken"></div>
+            </li>
+            <li class="menu-item">
+              <a href="/account"><img src="/arquivos/icon-user.svg"></img></a>
+            </li>
+          </ul>
+      </div>
+  </div>
+  </div>
+</header><!-- .header-container -->

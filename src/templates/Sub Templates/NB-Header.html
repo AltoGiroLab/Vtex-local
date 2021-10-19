@@ -1,0 +1,182 @@
+<!-- 
+ *
+ * Desenvolvido por Integrando.se
+ * hello@integrando.se
+ * 
+ * Bootstrap v.3
+ *
+-->
+<!-- Force Update 5 -->
+<header id="header">
+    <div class="header-menu">
+        <div class="toolbar__header">
+            <div class="container">
+                <div class="veja-tambem">
+                    <span>Veja também </span>
+                    <a href="http://www.altogiro.net" target="_blank">
+                        <img src="/arquivos/logo-altogiro.png" alt="Alto Giro - Moda Fitness"/>
+                    </a>
+                </div>
+            <div>
+                <a href="http://www.newbeach.com.br">
+                    <img class="brazil-flag" width='20' src="/arquivos/brazil-flag.jpg"/>
+                </a>
+                <span srtyle="margin-right:5px;"></span>
+                <a href="http://en.newbeach.com.br">
+                    <img class="usa-flag" width="20" src="/arquivos/usa-flag.jpg"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="header-menu-container">
+        <div class="header-logo-mobile show-only-small">
+            <div class="ismobile" onclick="toggleOpenMenuMobile()">
+                <span class="fa fa-bars"></span>
+            </div>
+
+            <div onclick="toggleSubMenuSearch()">
+                <img src="/arquivos/icon-search.svg"></img>
+            </div>
+
+            <a href="account-wishlist" class="isdesktop">
+                <img src="/arquivos/icon-heart.svg"></img>
+            </a>
+
+            <div class="logo">
+                <a href="/">
+                    <img src="https://increazy-folder.s3.amazonaws.com/5f8af6b3d3653949fc42e0c2/newbeach-logo.png" alt="Alto Giro"></img>
+                </a>
+            </div>
+
+            <div class="mini-cart col-mini-cart col-xs-1 col-sm-1 col-md-3 col-lg-2 hidden-xs menu-item icon-bag">
+                <a title="Carrinho de Compras" href="/checkout/#/cart" class="btn-mini-cart">
+                    <img src="/arquivos/icon-bag.svg"></img>
+                    <span class="label-cart mini-cart-qty-admake">0</span>
+                </a>
+            </div>
+
+            <div>
+                <a href="/account"><img src="/arquivos/icon-user.svg"></img></a>
+            </div>
+        </div>
+
+        <div class="header-logo hide-only-small">
+            <a href="/" title="Ir para a página inicial">
+                <img src="https://increazy-folder.s3.amazonaws.com/5f8af6b3d3653949fc42e0c2/newbeach-logo.png" alt="Logo Alto Giro" class="logo"></img>
+            </a>
+        </div>
+
+        <nav class="nav-menu">
+            <ul class="menu-list" pwa-hook="ativar-menu">
+                <li class="menu-item ">
+                    <a href="/lancamentos" class="nb-destaque menu-item-link">Lançamentos</a>
+                </li>
+                <li class="menu-item" >
+                    <a class="menu-item-link" href="/new-beach/feminino">Feminino</a>
+                    <div class="submenu-list">
+                        <div class="container-submenu-list container wrapper" onmouseleave="closeSubmenu(this)">
+                            <div class="item-container-submenu-list span2 s-span12 active" id="subFemininoFitness">
+                                <div class="title-submenu-list">
+                                    <a href="/new-beach/feminino">Feminino <span class="fa fa-chevron-right" pwa-hook.click="close-menu-mobile"></span></a>
+                                </div>
+
+                                <ul class="list-subitens list submenu-desk-list">
+                                    <li><a href="/new-beach/feminino/biquini" pwa-hook.click="close-menu-mobile">Biquini</a></li>
+                                    <li><a href="/new-beach/feminino/maio-e-body" pwa-hook.click="close-menu-mobile">Maio e Body</a></li>
+                                    <li><a href="/new-beach/feminino/saida-de-praia" pwa-hook.click="close-menu-mobile">Saida de Praia</a></li>
+                                    <li><a href="/new-beach/feminino/busto" pwa-hook.click="close-menu-mobile">Busto</a></li>
+                                    <li><a href="/new-beach/feminino/shorts" pwa-hook.click="close-menu-mobile">Shorts</a></li>
+                                    <li><a href="/new-beach/feminino/t-shirts" pwa-hook.click="close-menu-mobile">T-Shirts</a></li>
+                                    <li><a href="/new-beach/feminino/tanga" pwa-hook.click="close-menu-mobile">Tanga</a></li>
+                                    <li><a href="/new-beach/feminino/vestido" pwa-hook.click="close-menu-mobile">Vestido</a></li>
+                                    <li><a href="/new-beach/feminino/plus-size" pwa-hook.click="close-menu-mobile">Plus Size</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="menu-item" >
+                    <a   class="menu-item-link" href="/new-beach/masculino">Masculino</a>
+                    <div class="submenu-list">
+                        <div class="container-submenu-list container wrapper" onmouseleave="closeSubmenu(this)">
+                            <div class="item-container-submenu-list span3 s-span12 active" id="subFemininoFitness">
+                                <div class="title-submenu-list" href="/new-beach/masculino/">Masculino<span class="fa fa-chevron-right" pwa-hook.click="close-menu-mobile"></span></div>
+                                <ul class="list-subitens list  submenu-desk-list">
+                                    <li><a href="/new-beach/masculino/bermudas" pwa-hook.click="close-menu-mobile">Bermudas</a></li>
+                                    <li><a href="/new-beach/masculino/shorts" pwa-hook.click="close-menu-mobile">Shorts</a></li>
+                                    <li><a href="/new-beach/masculino/sungas" pwa-hook.click="close-menu-mobile">Sungas</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="menu-item" >
+                    <a  class="menu-item-link" href="/new-beach/kids">Kids</a>
+                </li>
+                <li class="menu-item" >
+                    <a  class="menu-item-link" href="/new-beach/acessorios" >Acessórios</a>
+                </li>
+                <li style="width: 100px" class="menu-item">
+                    <a href="/new-beach/cia-do-broto">
+                        <img style="width: 100%" src="/arquivos/ciadobroto-logo-grey-new.png" alt="CiaDoBroto"></img>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header-menu-user">
+            <div class="search search-column" id="search-row">
+                <section id="search-row-click" class="search-row">
+                    <form onsubmit="document.location.href = this.q.value; return false;" role="search" class="form-search">
+                        <i class="icon icon-search" style="font-size: 25px;margin-top:5px;color: #ccc"></i>
+                        <vtex.cmc:fullTextSearchBox/>
+                        <span class="icon icon-close" onclick="closeSubmenuSearch()">x</span>
+                    </form>
+                </section>
+            </div>
+
+            <ul class="menu-list">
+                <li class="menu-item" id="btn-search" onclick="openSubmenuSearch()">
+                    <img src="/arquivos/icon-search.svg"></img>
+                </li>
+                <li class="menu-item" href="/account-wishlist">
+                    <img src="/arquivos/icon-heart.svg"></img>
+                </li>
+                <!--<li class="menu-item icon-bag">
+                <img src="/arquivos/icon-bag.svg"></img>
+                <span class="label-cart">0</span>
+                </li>-->
+                <li class="mini-cart col-mini-cart col-xs-1 col-sm-1 col-md-3 col-lg-2 hidden-xs menu-item icon-bag">
+                    <a title="Carrinho de Compras" href="/checkout/#/cart" class="btn-mini-cart">
+                        <img src="/arquivos/icon-bag.svg"></img>
+                        <span class="label-cart mini-cart-qty-admake">0</span>
+                    </a>
+                    <div id="mini-cart-admake-aux" class="hidden">
+                        <vtex.cmc:miniCart />
+                        <vtex.cmc:AmountItemsInCart />
+                    </div><!-- #mini-cart-admake-aux -->
+                    <div id="mini-cart-admake" style="display: none;">
+                        <div class="mini-cart-header"></div>
+                        <div class="mini-cart-itens">
+                            <!-- recebe itens -->
+                        </div>
+                        <div class="mini-cart-footer">
+                            <div class="mini-cart-totais">
+                                <strong id="mini-cart-admake-total" class="pull-right"><!-- recebe valor total --></strong>
+                                <span>Total</span>
+                            </div>
+                            <div class="mini-cart-botao">
+                                <a href="/checkout/#/cart" class="btn btn-block btn-verde btn-finalizar-compra">Fechar Pedido</a>
+                            </div>
+                        </div>
+                    </div><!-- .mini-cart -->
+                    <div id="overlay-minicart-admake" class="lf-cart__darken"></div>
+                </li>
+                <li class="menu-item">
+                    <a href="/account"><img src="/arquivos/icon-user.svg"></img></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</header><!-- .header-container -->

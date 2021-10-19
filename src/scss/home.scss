@@ -1,0 +1,327 @@
+/* GALERY HOME */
+#swipper-slide-galery-home {
+  height: 443px;
+}
+
+/* BLOCK INFORMATIONS AND IMAGES */
+.home-page .span9  {
+  overflow-y: inherit !important;
+}
+
+/* SLIDE PRODUCT HOME */
+.swiper-home-products-width {
+  width: 277px !important;
+}
+
+.slide-product-indicator .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 44px;
+  height: 6px;
+  background: #2C2D32;
+  border-radius: 0;
+}
+
+.slide-product-indicator .swiper-pagination-bullet {
+  width: 44px;
+  height: 2px;
+  background: #E0E0E0;
+}
+
+
+/* ============
+  MOBILE
+==============*/
+@media only screen and (max-width: 650px) {
+  .slide-product-indicator .swiper-pagination-bullet {
+      width: 5% !important;
+  }
+
+  /* SECTION IMAGES GRID */
+  .ag-grid-collection-complet {
+      height: auto !important;
+  }
+
+  .ag-grid-collection-home {
+      flex-flow: column;
+  }
+
+  .ag-limit-width-buttons {
+      bottom: 61px !important;
+  }
+
+  .ag-column2-grid {
+      min-width: 100% !important;
+      max-width: 100% !important;
+  }
+
+  .ag-column3-grid {
+      margin-top: 20px;
+  }
+
+  .ag-text-button-look button {
+      margin-bottom: 25px;
+  }
+
+  #slide-collection-grid-home {
+      max-width: 100% !important;
+      // overflow: hidden;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  /* SECTION IMAGES GRID */
+  .ag-column3-grid img:nth-child(1), .ag-column2-grid img {
+      height: 200px;
+  }
+
+  .ag-text-button-look {
+      padding: 12px 0px 0px 25px !important;
+  }
+
+  .slider-grid-gallery-photos-info h2 {
+      font-size: 19px !important;
+  }
+
+  .ag-limit-width-buttons {
+      bottom: 35px !important;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+.ag-column3-grid img:nth-child(1), .ag-column2-grid img {
+      height: auto;
+  }
+
+}
+
+
+/*==============
+  GRID SLIDE HOME
+=============*/
+.ag-grid-collection-complet {
+  width: 100%;
+  height: 520px;
+  background-color: #F7F7F9;
+  margin-top: -5px;
+}
+
+.ag-grid-collection-home {
+  display: flex;
+  position: relative;
+  top: 80px;
+}
+
+#slide-collection-grid-home, 
+.ag-column2-grid,
+ag-column3-grid {
+  flex: 1;
+}
+
+#slide-collection-grid-home {
+  position: relative;
+  min-width: 33%;
+  max-width: 34%;
+  z-index: 0;
+}
+
+#slide-collection-grid-home #swipper-slide-galery-home img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#slide-collection-grid-home .swiper-slide.swiper-slide-active {
+  width: 100% !important;
+}
+
+.ag-limit-width-buttons {
+  width: 70px;
+  position: absolute;
+  right: -10px;
+  bottom: 57px;
+}
+
+/* #slide-collection-grid-home .swiper-button-next,
+#slide-collection-grid-home .swiper-button-prev {
+  position: absolute !important;
+  top: 84%;
+} */
+
+.ag-column3-grid {
+  display: flex;
+  flex-flow: column;
+}
+
+.ag-column2-grid, .ag-column3-grid {
+  min-width: 33%;
+  max-width: 34%;
+  z-index: 0;
+  // overflow: hidden;
+}
+@media only screen and (max-width: 650px) {
+.ag-column2-grid, .ag-column3-grid {
+  min-width: unset;
+  max-width: unset;
+  z-index: 0;
+}
+}
+
+.ag-column3-grid img:nth-child(1),
+.ag-column2-grid img {
+  object-fit: cover;
+}
+
+.ag-text-button-look {
+  background-color: #fff;
+  padding: 23px 0px 0px 56px;
+}
+
+.ag-limit-width-buttons .swiper-button-next::after,
+.ag-limit-width-buttons .swiper-button-prev::after {
+  content: '';
+}
+
+.ag-limit-width-buttons .fa-chevron-right,
+.ag-limit-width-buttons .fa-chevron-left,
+.ag-limit-width-buttons .swiper-button-next.swiper-button-disabled,
+.ag-limit-width-buttons .swiper-button-prev.swiper-button-disabled {
+  font-size: 12px;
+}
+
+.slider-grid-gallery-photos-info {
+  padding-left: 10px !important;
+}
+
+/* Instagram */
+
+// .block-instagram {}
+
+.block-instagram .block-instagram-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.block-instagram .block-instagram-head .title {
+  font-family: "Gibson", sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.block-instagram #instagram-feed {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.block-instagram #instagram-feed a {
+  display: block;
+}
+
+.block-instagram #instagram-feed a:hover img {
+  transform: scale(0.98, 0.98);
+}
+
+.block-instagram #instagram-feed img {
+  max-width: 100%;
+  transition: 0.2s all ease-in-out;
+}
+
+@media only screen and (max-width: 1024px) {
+  .block-instagram #instagram-feed {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .block-instagram .block-instagram-head {
+      flex-direction: column;
+  }
+
+  .block-instagram #instagram-feed {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.prateleira-lancamentos h2 {
+display:none;
+}
+
+/*
+ * 2021 new styles
+ */
+
+// Instagram - Instafeed
+#instafeed {
+  display: flex;
+  flex-wrap: wrap;
+
+  max-width: 75rem;
+  margin: 0 auto;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    width: 50%;
+    background: #fff;
+
+    @media only screen and (min-width: 580px) {
+      width: 25%;
+    }
+
+    img {
+      display: block;
+      width: 270px;
+      max-width: 270px;
+      height: 270px;
+      object-fit: cover;
+    }
+
+    .caption {
+      visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: absolute;
+      // top: 0;
+      // left: 0;
+      inset: auto;
+      width: 270px;
+      height: 270px;
+      padding: 15px;
+      background: rgba(0,0,0,0.5);
+
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    &:hover {
+      .caption {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// Fix slider below the main slider
+.ag-grid-collection-home {
+  overflow: hidden;
+  top: 0!important;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.swiper-container {
+  overflow: hidden;
+}
+
+.ag-grid-collection-complet {
+	height: auto!important;
+	margin-top: 0!important;
+}

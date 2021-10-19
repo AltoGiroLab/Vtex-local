@@ -1,0 +1,77 @@
+<!-- 
+ *
+ * Desenvolvido por Integrando.se
+ * hello@integrando.se
+ * 
+ * Bootstrap v.3
+ *
+ -->
+
+ <!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="en-us">
+ 
+ <head>
+     <title> Modelo Vtex</title>
+     <vtex:metaTags/>
+ 
+     <link href="/arquivos/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
+     <link href="/arquivos/ion.rangeSlider.skinHTML5.css" rel="stylesheet" type="text/css" />
+     <script src="/arquivos/ion.rangeSlider.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="/arquivos/infinityScroll.css" />
+     <vtex:template id="AG-commonStyles" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     
+ </head>
+ 
+ <body id="departament-page">
+ 
+     <div id="main" class="when-mobile">
+         <!--  SubTemplate: Header -->
+             <vtex:template id="AG-En-Header" />
+             <!-- /SubTemplate: Header -->
+                     
+         <div class="spacer-menu-fixed"></div>
+         <section class="block-header-pages">
+             <div class="background-block-header-pages hide-only-small">
+                 <div class="left-categoria"></div>
+                 <vtex:contentPlaceHolder id="bannercategoria" />
+             </div>
+             <div class="wrapper-block-header-pages">
+                 <div class="container wrapper w-100">
+                     <div class="content-block-header-pages span7 m-span10 s-span12">
+                         <vtex.cmc:breadCrumb />
+                         <vtex.cmc:searchTitle />
+                         <p class="description">
+                             <vtex:contentPlaceHolder id="descricao_departamento" />
+                         </p>
+                     </div>
+                 </div>
+             </div>
+         </section>
+         <div class="spacer120"></div>
+         <div>
+             <section class="block-products container">
+                 <div class="wrapper wrapper-gap">
+                     <div class="span3 m-span12 s-span12">
+                         <div class="bar-filter">
+                             <h2>Filters</h2>
+                         </div>
+                         <vtex.cmc:singleDepartmentNavigator />
+                     </div>
+                     <div class="span9 m-span12 s-span12">
+                         <vtex.cmc:searchResult layout="37158f0d-a292-4b3c-8dae-93640f43bbd6" itemCount="12"     columnCount="3" />
+                     </div>
+ 
+                 </div>
+             </section>
+         </div>
+         <vtex:template id="AG-En-Newsletter" />
+         <vtex:template id="AG-En-Footer" />
+ 
+     </div>
+ 
+ </body>
+     <vtex:template id="AG-commonScripts" />
+     <script type="text/javascript" src="/arquivos/QD_infinityScroll.min.js"></script>
+     <script>$(".ag-prateleira[id*=ResultItems]").QD_infinityScroll();</script>
+ </html>

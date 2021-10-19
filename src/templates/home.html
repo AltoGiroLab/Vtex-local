@@ -1,14 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-  </head>
-  <body>
-    <!-- 
-      AQUI VAI O TEMPLATE PADRÃO DA VTEX.... 
-    -->
-  </body>
-</html>
+<!-- 
+ *
+ * Desenvolvido por Integrando.se
+ * hello@integrando.se
+ * 
+ * Bootstrap v.3
+ *
+ -->
+
+ <!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce">
+ 
+ <head>
+     <title> Alto Giro</title>
+     <vtex:metaTags/>
+     <vtex:template id="commonStyles" />
+     <meta name="google-site-verification" content="i6Bu-d0MZcnB-SMTZ9-QSye3fIQVPcP_cTFKLYvEYVE" />
+     <!-- css -->
+     <link href="/arquivos/home.css" rel="stylesheet" type="text/css" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+ </head>
+ 
+ <body>
+ 
+     <div id="app">
+ 
+         <!--  SubTemplate: Header -->
+         <vtex:template id="Header" />
+         <!-- /SubTemplate: Header -->
+                     
+         <main id="main" class="home-page when-mobile">
+                     
+             <div id="category-extra-middle"></div>
+         
+             <div class="fullbanner">
+                 <vtex:contentPlaceHolder id="bannersegmentado" />
+             </div><!-- .fullbanner -->
+                     
+             <div id="category-extra-vitrine-1">
+                 <div class="ag-grid-collection-complet">
+                     <div class="ag-grid-collection-home container">
+                         <!-- SLIDE COLLECTION SABRINA SATO -->
+                         <div class="swiper-container" id="slide-collection-grid-home" pwa-hook="slide-collection-grid-home">
+                             <div class="swiper-wrapper">
+                                 <div class="swiper-slide">
+                                     <div class="grid-gallery-photo01">
+                                         <div class="slider-grid-gallery-photos">
+                                             <div id="swipper-slide-galery-home">
+                                                 <img src="/arquivos/banner-mid-slider-home1.jpg" alt="Sabrina Sato">
+                                                     <a href="/feminino/collab/sabrina-sato"></a>
+                                                 </img>
+                                             </div>
+                                             <div class="slider-grid-gallery-photos-info">
+                                                 <h2>COLEÇÃO #01 SABRINA SATO</h2>
+                                             </div>
+                                             <div class="slider-grid-gallery-photos-pagination swiper-pagination"></div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="swiper-slide">
+                                     <div class="grid-gallery-photo01">
+                                         <div class="slider-grid-gallery-photos">
+                                             <div id="swipper-slide-galery-home">
+                                                 <img src="/arquivos/banner-mid-slider-home1.jpg" alt="Sabrina Sato"></img>
+                                             </div>
+                                             <div class="slider-grid-gallery-photos-info">
+                                                 <h2>COLEÇÃO #01 SABRINA SATO</h2>
+                                             </div>
+                                             <div class="slider-grid-gallery-photos-pagination swiper-pagination"></div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+             
+                             <div class="slider-grid-gallery-photos-navigation">
+                                 <!-- Add Arrows -->
+                                 <div class="ag-limit-width-buttons">
+                                     <div class="swiper-button-next"><span class="fas fa-chevron-right"></span></div>
+                                     <div class="swiper-button-prev"><span class="fas fa-chevron-left"></span></div>
+                                 </div>
+             
+                                 <!-- Add Pagination -->
+                                 <div class="swiper-pagination"></div>
+                             </div>
+                         </div><!-- END SLIDE -->
+             
+             
+                         <div class="ag-column2-grid">
+                             <img src="/arquivos/banner-mid-home1.jpg" alt="Sabrina Sato"></img>
+                             <div class="ag-text-button-look">
+                                 <h3>#FUNFITNESS</h3>
+                                 <p>Confira as novidades em Fitness</p>
+                                 <button pwa-to-page="/feminino/collab/sabrina-sato" class="btn">CONHEÇA</button>
+                             </div>
+                         </div>
+             
+                         <div class="ag-column3-grid">
+                             <img src="/arquivos/banner-mid-home2.jpg" alt="Sabrina Sato"></img>
+                                     
+                             <img src="/arquivos/banner-mid-home3.jpg" alt="Sabrina Sato" class="grid-gallery-photo05"></img>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             
+              <section class="block-columns-itens container wrapper">
+                 <div class="block-columns-item span4 s-span12 text-center">
+                     <a href="/feminino/fitness" style="text-decoration:none;">
+                         <img src="/arquivos/banner-fitness-life.jpg" class="hover-effect" alt="Mulher roupa yoga"></img>
+                         <h4>Fitness Life</h4>
+                         <p>Mesmo de casa,<br /> faça acontecer.</p>
+                     </a>
+                 </div>
+ 
+                 <div class="block-columns-item span4 s-span12 text-center">
+                     <a href="/familia-gym" style="text-decoration:none;">
+                         <img src="/arquivos/banner-familia-gym.jpg" class="hover-effect" alt="Mulher usando roupa fitness"></img>
+                         <h4>Família Gym</h4>
+                         <p>A sua rotina muito<br /> mais estilosa</p>
+                     </a>
+                 </div>
+                 <div class="block-columns-item span4 s-span12 text-center">
+                     <a href="/feminino/fitness/cropped---tops" style="text-decoration:none;">
+                         <img src="/arquivos/banner-tecnologia.jpg" class="hover-effect" alt="Mulher usando biquini"></img>
+                         <h4>Tecnologia</h4>
+                         <p>Um Match poderoso entre<br /> estilo e performance</p>
+                     </a>
+                 </div>
+             </section>
+             
+             <div class="spacer80"></div>
+ 
+             <section class="bcg-gray">
+                 <div class="container wrapper">
+                     <div class="span1 hide-only-small"></div>
+                     <div class="span9 s-span12">
+                         <div class="block-info-image block-info-image-left">
+                             <a href="/feminino/fitness/plus-size" style="text-decoration:none;color:#000">
+                                 <img src="/arquivos/banner-plus-size.jpg" class="hover-effect" alt="Mulher usando roupa fitness plus size"></img>
+                                 <div class="block-info-image-content">
+                                     <div class="title">
+                                         <h2>Plus<br /> Size</h2>
+                                     </div>
+                                     <div class="description">
+                                         <p>Tecnologia para vestir conforto e segurança</p>
+                                     </div>
+                                 </div>
+                             </a>
+                         </div>
+                     </div>
+                     <div class="span2 hide-only-small"></div>
+                 </div>
+         
+                 <div class="container wrapper">
+                     <div class="span1 hide-only-small"></div>
+                     <div class="span9 s-span12">
+                         <div class="block-info-image block-info-image-right">
+                             <a href="/yoga-lovers" style="text-decoration:none;color:#000">
+                                 <img src="/arquivos/banner-yoga.jpg" class="hover-effect" alt="Mulher praticando yoga"></img>
+                                 <div class="block-info-image-content">
+                                     <div class="title">
+                                         <h2>Yoga<br /> Lovers</h2>
+                                     </div>
+                                     <div class="description">
+                                         <p>Toda a liberdade que a sua prática merece.</p>
+                                     </div>
+                                 </div>
+                             </a>
+                         </div>
+                     </div>
+                     <div class="span2 hide-only-small"></div>
+                 </div>
+             </section>
+             <section>
+               <vtex:contentPlaceHolder id="teste" />
+             </section>
+ 
+         </main><!-- #content -->  
+                     
+         <!--  SubTemplate: Footer -->
+         <vtex:template id="Footer" />
+         <!-- /SubTemplate: Footer -->
+     
+     </div><!-- .container-fluid -->
+ </body>
+     <vtex:template id="commonScripts" />
+ </html>

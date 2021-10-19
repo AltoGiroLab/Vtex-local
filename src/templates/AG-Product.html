@@ -1,0 +1,120 @@
+<!-- 
+ *
+ * Desenvolvido por Integrando.se
+ * hello@integrando.se
+ * 
+ * Bootstrap v.3
+ *
+ -->
+
+ <!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="en-us">
+ 
+ <head>
+     <title>Produto</title>
+     <vtex:metaTags/>
+     <vtex:template id="AG-commonStyles" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+ </head>
+ 
+ <body id="product-page">
+ 
+     <div class="page">
+ 
+         <!--  SubTemplate: Header -->
+         <vtex:template id="AG-Header" />
+         <!-- /SubTemplate: Header -->
+                     
+         <section id="block-product-details" class="block-product-details">
+             <div class="container wrapper gap30">
+                 <div class="span6 s-span12">
+                     <div class="product-image col-xs-12 col-sm-7 col-lg-6 text-center">
+           <!--  Component: Product Images -->
+           <vtex.cmc:ProductImage/>
+                 </div><!-- .product-image -->
+                 </div>
+                 <div class="span1 s-span12" style="max-width: 50px;">
+                     <vtex.cmc:productSpecification/>
+                 </div>
+                 <div class="info-block-product-details span5 s-span12">
+                     <div class="product-details">
+                         <div class="product-info">
+                             <vtex.cmc:breadCrumb />
+                         <div class="maxw400">
+                             <vtex.cmc:HightLight/>
+                             <div class="favorite-product">
+                                 <img src="/arquivos/icon-heart.svg"></img>
+                             </div>
+                         </div>
+                         <vtex.cmc:productName />
+                         <div class="sku-reference-product">
+                             <div style="display: flex;">
+                                 <span style="padding-right: 5px">Cód:</span> 
+                                 <vtex.cmc:skuReference/>
+                             </div>
+                             <div class="product-details-rating">
+                                 <a href="#reviews" class="link-ancora">
+                                     <vtex.cmc:evaluationRate/>
+                                 </a>
+                             </div>
+                         </div>
+ 
+                         <div class="spacer20"></div>
+                         <div class="price-box">
+                             <vtex.cmc:skuPrice />
+                         </div>
+                         <div class="seletor-sku">
+                             <vtex.cmc:stockKeepingUnitSelection />
+                         </div> <!-- .seletor-sku -->
+                         <div style="display:none;">
+                             <vtex.cmc:skuSelection />
+                         </div> <!-- novo seletor sku -->
+               <div class="spacer20"></div>
+                 <vtex.cmc:BuyButton />
+                 <div class="spacer20"></div>
+                 <div style="display:none;">
+                    <vtex.cmc:BuyTogether/>
+                </div> <!-- Compre Junto -->
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </section>
+         <div class="spacer80"></div>	
+         <section class="container">
+       <div class="showcase-default showcase-owl">
+                 <vtex:contentPlaceHolder id="Similares" />
+             </div>
+         </section>
+         <div class="spacer180"></div>
+         <section class="bcg-gray">
+             <div class="block01-description-product container wrapper">
+                 <div class="content-block01-description-product span6 s-span12">
+                     <h2 class="title">Por que colocar na sua sacola?</h2>
+                     <div class="slider-description-product">
+                         <vtex.cmc:ProductDescription />
+                     </div>
+                 </div>
+                 <div class="image-block01-description-product">
+                     <img src="/arquivos/image1-description-product.jpg"></img>
+                 </div>
+             </div>
+         </section>
+ 
+       <section class="container">
+       <div class="showcase-default showcase-owl">
+         <vtex:contentPlaceHolder id="Quem-viu-viu-tambem" />
+       </div><!-- .showcase-default -->
+       </section>
+       <div class="spacer80"></div>
+       <vtex:template id="AG-Newsletter" />
+     <!--  SubTemplate: Footer -->
+         <vtex:template id="AG-Footer" />
+         <!-- /SubTemplate: Footer -->
+     
+     </div><!-- .container-fluid -->
+ 
+ </body>
+     <vtex:template id="AG-commonScripts" />
+ </html>

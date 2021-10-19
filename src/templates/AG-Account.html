@@ -1,0 +1,90 @@
+<!-- 
+ *
+ * Desenvolvido por Integrando.se
+ * hello@integrando.se
+ * 
+ * Bootstrap v.3
+ *
+ -->
+
+ <!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="en-us">
+ 
+ <head>
+     <title>Minha Conta - Alto Giro</title>
+     <vtex:metaTags/>
+     <vtex:template id="AG-commonStyles" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+ </head>
+ 
+ <body id="account-page">
+ 
+     <div class="page">
+ 
+         <!--  SubTemplate: Header -->
+         <vtex:template id="AG-Header" />
+         <!-- /SubTemplate: Header -->
+ 
+         <div id="account-extra-top"></div>
+ 
+         <section id="account-content" class="container">
+         
+             <div class="row">
+ 
+                 <div class="col-xs-12 col-sm-6">
+                     <vtex.cmc:accountUserProfile />
+                 </div>
+                 <div class="col-xs-12 col-sm-6">
+               <vtex.cmc:accountAddress/>
+                 </div>
+             
+             </div>
+ 
+         </section><!-- #content -->  
+         
+         <div id="account-extra-bottom"></div>
+                 
+         <!--  SubTemplate: Footer -->
+         <vtex:template id="Footer" />
+         <!-- /SubTemplate: Footer -->
+     
+     </div><!-- .container-fluid -->
+ 
+ </body>
+     <vtex:template id="AG-commonScripts" />
+     <script type="text/javascript">
+     //<![CDATA[
+ 
+         $(document).ready( function(){
+             var hash = $(location).attr('hash');
+             var $links = $('a[data-toggle="modal"]');
+ 
+             $.each( $links, function(){
+                 var $this = $(this);
+                 if( $this.attr('href') === hash ){
+                     $this.click();
+                 } 
+             });
+             var obs = new MutationObserver(function(mutations, observer) {
+               // using jQuery to optimize code
+               $.each(mutations, function (i, mutation) {
+                 var addedNodes = $(mutation.addedNodes);
+                 var selector = "div.vtex-profile-form__document,div.vtex-profile-form__homePhone,div.vtex-profile-form__birthDate";
+                 var filteredEls = addedNodes.find(selector).addBack(selector); // finds either added alone or as tree
+                 console.log(filteredEls);
+                 filteredEls.each(function () { // can use jQuery select to filter addedNodes
+                   var input = $(this).find('input');
+                   $(input[0]).attr('placeholder','');
+                 });
+               });
+             });
+             
+             var canvasElement = $("#account-content")[0];
+             obs.observe(canvasElement, {childList: true, subtree: true});
+         })
+        
+ 
+     //]]>
+     </script>
+ </html>
