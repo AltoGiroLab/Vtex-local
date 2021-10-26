@@ -4438,6 +4438,18 @@ span {
         width: 33.3%;
       }
     }
+    .newDiscount {
+      p {
+        margin: 0;
+        line-height: inherit;
+      }
+
+      .BTTotalDiscount {
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--color-custom-black300);
+      }
+    }
   }
 }
 
@@ -4581,6 +4593,49 @@ span {
 
     a {
       color: #0B0A0A;
+    }
+  }
+}
+
+// Flag
+.product-image {
+  position: relative;
+
+  .flag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 8px;
+
+    background: black;
+    color: #fff;
+    
+    font-weight: bold;
+    font-size: 14px;
+    line-height: inherit;
+  }
+}
+
+.box-item {
+  position: relative;
+
+  .product-flags {
+    .flag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      // width: 50px;
+      padding: 8px;
+  
+      background: black;
+      color: #fff;
+      
+      font-weight: bold;
+      font-size: 14px;
+      line-height: inherit;
+      text-align: center;
     }
   }
 }

@@ -30,6 +30,7 @@ module.exports = {
     // __dirname + "/src/js/admake-mini-cart.js",
     // __dirname + "/src/js/ag-instagram.js",
     // __dirname + "/src/js/nb-instagram.js",
+    // __dirname + "/src/js/nb-default.js",
     __dirname + "/src/scss/ag-style.scss",
     __dirname + "/src/scss/global.scss",
     __dirname + "/src/scss/home.scss",
@@ -52,6 +53,7 @@ module.exports = {
     // filename: "admake-mini-cart.js",
     // filename: "ag-instagram.min.js",
     // filename: "nb-instagram.min.js",
+    // filename: "nb-default.js",
   },
   plugins: [
     new BrowserSyncPlugin({

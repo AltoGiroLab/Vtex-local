@@ -7,6 +7,8 @@
  * 4. WhatsApp button position modifier
  * 5. Request product info via VTEX Search API and add video to page
  * 6. Add jquery tabs to Regulamentos page
+ * 7. Fix flag label in product page
+ * 8. Fix flag label on shelfs
  * 
  */
 
@@ -27,7 +29,7 @@ if (document.getElementsByClassName('group_1').length === 2) {
       document.getElementById('divCompreJunto').children.length === 2 && buyTogetherModifier();
     }, 1700);
   });
-}
+};
 
 // 3. Mini Cart and WhatsApp Button modifier
 // 4. WhatsApp button position modifier
@@ -55,10 +57,11 @@ if (!isMobile) {
       WhatsAppButtonModifier();
     }, 500);
   });
-}
+};
 
 // 5. Request product info via VTEX Search API and add video to page
-if (document.getElementById('product-page').length !== 0) {
+const pathNameFiveFunc = window.location.pathname
+if (window.location.pathname.substring(pathNameFiveFunc.length, pathNameFiveFunc.length - 2) === '/p') {
   const allBotaoZoom = document.querySelectorAll('#botaoZoom');
   setTimeout(function () {
     allBotaoZoom[0].click();
@@ -72,12 +75,50 @@ if (document.getElementById('product-page').length !== 0) {
   setTimeout(function () {
     addVideosToProduct();
   }, 100);
-}
+};
 
 // 6. Add jquery tabs to Regulamentos page
 if (window.location.pathname === '/regulamentos') {
   regulamentoTabs();
-}
+};
+
+// 7. Fix flag label in product page
+if (window.location.pathname.substring(pathNameFiveFunc.length, pathNameFiveFunc.length - 2) === '/p') {
+  fixProductFlag();
+};
+
+// 8. Fix flag label on shelfs
+if (window.location.pathname.substring(pathNameFiveFunc.length, pathNameFiveFunc.length - 2) !== '/p') {
+  fixProductFlag();
+
+  // let lastKnownScrollPosition = 0;
+  // let ticking = false;
+  // let test = false;
+
+  // function doSomething(scrollPos) {
+  //   let infinityScrollAttr = document.body.getAttribute('data-qd-infinity-scroll')
+  //   if (infinityScrollAttr === '1') {
+  //     if(test === false && window.scrollY > 1500 && window.scrollY < 2000){
+  //       fixProductFlag();
+  //       test = true
+  //     }
+  //   }
+  // }
+
+  // document.addEventListener('scroll', function(e) {
+  //   lastKnownScrollPosition = window.scrollY;
+
+  //   if (!ticking) {
+  //     window.requestAnimationFrame(function() {
+  //       doSomething(lastKnownScrollPosition);
+  //       ticking = false;
+  //     });
+
+  //     ticking = true;
+  //   }
+  // });
+
+};
 
 /*
  *
@@ -113,24 +154,24 @@ function buyTogetherModifier() {
   BTTotal.classList.add('BTTotal');
   const BTTotalText = document.createElement('p');
   BTTotalText.classList.add('BTTotalText');
+  const BTdivDiscount = document.createElement('div');
+  BTdivDiscount.classList.add('newDiscount');
+  const BTTotalDiscount = document.createElement('p');
+  BTTotalDiscount.classList.add('BTTotalDiscount');
   
   // Add divs to parent
   BTdivCompreJunto.append(BTLine1, BTLine2);
   BTLine1.append(BTdivItemA, BTdivPlus, BTdivItemB);
   BTdivBuy.append(BTTotal, BTTotalText);
-  BTLine2.append(BTdivBuy);
-  
-  // Add divs to parent
-  BTdivCompreJunto.append(BTLine1, BTLine2);
-  BTLine1.append(BTdivItemA, BTdivPlus, BTdivItemB);
-  BTdivBuy.append(BTTotal, BTTotalText);
-  BTLine2.append(BTdivBuy);
+  BTdivDiscount.append(BTTotalDiscount);
+  BTLine2.append(BTdivBuy,BTdivDiscount);
   
   // Get old values from table
   const BTOldItemA = document.getElementsByClassName('itemA');
   const BTOldItemB = document.getElementsByClassName('itemB');
   const BTOldPlus = document.getElementsByClassName('plus');
   const BTOldBuy = document.getElementsByClassName('buy');
+  const BTOldBuyDiscount = BTOldBuy[0].querySelectorAll('strong')[2];
 
   // Change .buy text before send to new div
   const BTdivBuyNewPrice = BTOldBuy[0].innerHTML.substring(BTOldBuy[0].innerHTML.indexOf('total'));
@@ -145,6 +186,11 @@ function buyTogetherModifier() {
   const BTNewTotalRs = BTdivBuyNewContentArray[2];
   const BTNewTotalValue = BTdivBuyNewContentArray[3];
   BTTotalText.append(BTNewTotalRs, ' ', BTNewTotalValue);
+
+  // Get New Discount
+  const BTdivNuyNewDiscount = BTOldBuyDiscount.innerText.split(' ', BTOldBuyDiscount.innerText.length);
+  const BTNewDiscount = BTdivNuyNewDiscount[5];
+
   
   // Pass old values for new divs
   BTdivItemA.insertAdjacentHTML('afterbegin', BTOldItemA[0].innerHTML);
@@ -152,6 +198,8 @@ function buyTogetherModifier() {
   BTdivPlus.insertAdjacentHTML('afterbegin', BTOldPlus[0].innerHTML);
   BTdivBuy.append(BTTotal, BTTotalText);
   BTdivBuy.insertAdjacentHTML('beforeend', BTdivBuyNewLink[0].innerHTML);
+  BTTotalDiscount.append('Economize R$ ',BTNewDiscount);
+
 
   // Change images
   const BTNewItemA = document.getElementsByClassName('newItemA');
@@ -232,7 +280,7 @@ function WhatsAppButtonModifier() {
  * 
  */
 function addVideosToProduct() {
-  const urlGet = `https://altogirorc.vtexcommercestable.com.br/api/catalog_system/pub/products/search${window.location.pathname}`
+  const urlGet = `https://altogirorc.vtexcommercestable.com.br/api/catalog_system/pub/products/search${window.location.pathname}`;
 
   let getSkuReference = document.getElementsByClassName('skuReference');
   getSkuReferenceValue = getSkuReference[0].innerText;
@@ -261,11 +309,11 @@ function addVideosToProduct() {
       const responseDataItems = responseParse[0].items;
       // Search sku in response data items
       if (window.location.pathname === '/top-alto-giro-fax-costas-decotada-110351/p') {
-        getSkuReferenceValue = '1234'
+        getSkuReferenceValue = '1234';
       }
       const responseDataExactProduct = responseDataItems.find(element => element.itemId === getSkuReferenceValue);
       // Get videos from item found
-      const responseDataExactProductVideos = responseDataExactProduct.Videos
+      const responseDataExactProductVideos = responseDataExactProduct.Videos;
 
       // Get thumbnails from product active
       const productImages = document.getElementById('newThumbsDiv');
@@ -365,6 +413,50 @@ function regulamentoTabs() {
       $(hash).addClass('active');
     } else {
       $(".select-tabs option:first").attr('selected','selected');
+    }
+  }
+}
+
+/*
+ *
+ * 7. Fix flag label in product page
+ * 
+ */
+function fixProductFlag() {
+  let discountFlag = document.getElementsByClassName('flag')
+  // let discountFlagZero = discountFlag[0]
+  // subFunction()
+
+  if (discountFlag.length === 2) {
+    discountFlagZero = discountFlag[0]
+    subFunction()
+  } else {
+    for (var i = 0, len = discountFlag.length; i < len; ++i) {
+      discountFlagZero = discountFlag[i]
+      subFunction()
+    }
+  }
+
+  function getLastWord(words) {
+      var n = words.split(" ");
+      return n[n.length - 1];
+  }
+
+  function subFunction() {
+    let discountFlagInnetHTML = discountFlagZero.innerHTML
+    if (discountFlag.length !== 0 && discountFlagInnetHTML.includes('OFF')) {
+      let wordCount
+      if (getLastWord(discountFlagInnetHTML) === 'OFF') {
+        wordCount = 3
+      } else {
+        wordCount = 8
+      }
+      let textLength = discountFlagInnetHTML.length
+      let newContent = discountFlagInnetHTML.substring(0, textLength - wordCount) + "<br />" + discountFlagInnetHTML.substring(textLength - wordCount)
+      discountFlagZero.innerHTML = newContent
+      if (discountFlagZero.innerHTML.includes('<br><br>')) {
+        discountFlagZero.innerHTML = newContent
+      }
     }
   }
 }
