@@ -9,6 +9,7 @@
  * 6. Add jquery tabs to Regulamentos page
  * 7. Fix flag label in product page
  * 8. Fix flag label on shelfs
+ * 9. Get cart id on Live Commerce page
  * 
  */
 
@@ -117,7 +118,13 @@ if (window.location.pathname.substring(pathNameFiveFunc.length, pathNameFiveFunc
   //     ticking = true;
   //   }
   // });
+};
 
+// 9. Get cart id on Live Commerce page
+if (window.location.pathname === '/live-commerce') {
+  setTimeout(function () {
+    getCartCookie('checkout.vtex.com');
+  }, 500);
 };
 
 /*
@@ -458,5 +465,30 @@ function fixProductFlag() {
         discountFlagZero.innerHTML = newContent
       }
     }
+  }
+}
+
+// 8. Only in Call Functions
+
+/*
+ *
+ * 9. Get cart id on Live Commerce page
+ * 
+ */
+function getCartCookie(name) {
+  let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  if (match) {
+    match = match[2];
+    match = match.substring(7, match.length);
+    // let iframe = document.getElementsByTagName('iframe')[0];
+    // let iframeSrc = iframe.src+"&cartId="+match;
+    // iframe.src = iframeSrc;
+
+    // Forma seucndária
+    let embedCode = `<iframe src="https://sdk.mimo.com.br/0.0.1/embed/player.html?liveId=1ec3e375-1ba5-63c4-911c-02991c64708e&cartId=${match}" style="height:800px;width:100%;" title="Mimo"></iframe>`;
+    document.getElementsByClassName('live-commerce')[1].innerHTML = embedCode;
+
+  } else {
+    console.log('Erro ao pegar id do carrinho');
   }
 }

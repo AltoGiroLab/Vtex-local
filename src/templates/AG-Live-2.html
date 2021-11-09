@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce">
+  <head>
+    <vtex:contentPlaceHolder id="htmlSeo" />
+    <vtex:metaTags/>
+    <vtex:template id="AG-commonStyles" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body id="departament-page">
+    <script src="https://sdk.mimo.com.br/0.0.1/index.js" async defer></script>
+    <div id="main" class="when-mobile">
+      <!--  SubTemplate: Header -->
+        <vtex:template id="AG-Header" />
+      <!-- /SubTemplate: Header -->
+      <div class="spacer-menu-fixed"></div>
+      <div>
+        <div class="live-commerce">
+          <mimo-player data-config-endpoint="https://api.mimo.com.br/api/(MIMO_API_VERSION)/config/(MIMO_LIVE_ID)" data-liveid="1ec3e375-1ba5-63c4-911c-02991c64708e" data-cartid="ID DO CARRINHO (CHECKOUT_ID) POR USUÁRIO"></mimo-player> 
+        </div>
+      </div>
+      <!--  SubTemplate: Footer -->
+        <vtex:template id="AG-Footer" />
+      <!-- /SubTemplate: Footer -->
+    </div>
+  </body>
+  <vtex:template id="AG-commonScripts" />
+</html>
