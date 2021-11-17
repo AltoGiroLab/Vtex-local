@@ -10,6 +10,7 @@
  * 7. Fix flag label in product page
  * 8. Fix flag label on shelfs
  * 9. Get cart id on Live Commerce page
+ * 10. Banner home fix
  * 
  */
 
@@ -63,19 +64,19 @@ if (!isMobile) {
 // 5. Request product info via VTEX Search API and add video to page
 const pathNameFiveFunc = window.location.pathname
 if (window.location.pathname.substring(pathNameFiveFunc.length, pathNameFiveFunc.length - 2) === '/p') {
-  const allBotaoZoom = document.querySelectorAll('#botaoZoom');
-  setTimeout(function () {
-    allBotaoZoom[0].click();
-  }, 50);
-  setTimeout(function () {
-    allBotaoZoom[1].click();
-  }, 60);
-  setTimeout(function () {
-    allBotaoZoom[0].click();
-  }, 70);
+  // const allBotaoZoom = document.querySelectorAll('#botaoZoom');
+  // setTimeout(function () {
+  //   allBotaoZoom[0].click();
+  // }, 100);
+  // setTimeout(function () {
+  //   allBotaoZoom[1].click();
+  // }, 110);
+  // setTimeout(function () {
+  //   allBotaoZoom[0].click();
+  // }, 120);
   setTimeout(function () {
     addVideosToProduct();
-  }, 100);
+  }, 130);
 };
 
 // 6. Add jquery tabs to Regulamentos page
@@ -91,41 +92,64 @@ if (window.location.pathname.substring(pathNameFiveFunc.length, pathNameFiveFunc
 // 8. Fix flag label on shelfs
 if (window.location.pathname.substring(pathNameFiveFunc.length, pathNameFiveFunc.length - 2) !== '/p') {
   fixProductFlag();
-
-  // let lastKnownScrollPosition = 0;
-  // let ticking = false;
-  // let test = false;
-
-  // function doSomething(scrollPos) {
-  //   let infinityScrollAttr = document.body.getAttribute('data-qd-infinity-scroll')
-  //   if (infinityScrollAttr === '1') {
-  //     if(test === false && window.scrollY > 1500 && window.scrollY < 2000){
-  //       fixProductFlag();
-  //       test = true
-  //     }
-  //   }
-  // }
-
-  // document.addEventListener('scroll', function(e) {
-  //   lastKnownScrollPosition = window.scrollY;
-
-  //   if (!ticking) {
-  //     window.requestAnimationFrame(function() {
-  //       doSomething(lastKnownScrollPosition);
-  //       ticking = false;
-  //     });
-
-  //     ticking = true;
-  //   }
-  // });
 };
 
 // 9. Get cart id on Live Commerce page
 if (window.location.pathname === '/live-commerce') {
   setTimeout(function () {
-    getCartCookie('checkout.vtex.com');
+    // getCartCookie('checkout.vtex.com');
+
+    ;(function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.onload = function () {
+        //Extract Cookie VTEX
+        var cookies = document.cookie.split('; ').find(row => row.startsWith('checkout.vtex.com'));
+        var cartId = cookies ? cookies.split('=')[2] : 'INVALID-VTEX-COOKIE';
+
+        //Initialize Player
+        var mimoPlayer = new window.MimoPlayer({
+          liveId: '1ec3e375-1ba5-63c4-911c-02991c64708e',
+          configEndpoint: 'https://api.mimo.com.br/api/(MIMO_API_VERSION)/config/(MIMO_LIVE_ID)',
+          cartId: cartId,
+
+          //Event Capture
+          middleware: function (store) {
+            return function (next) {
+              return function (action) {
+                switch (action.type) {
+                  case "checkout/intent_addedToCart":
+                    recarregaCarrinho();
+                }
+                return next(action);
+              };
+            };
+          },
+        });
+ 
+        //Container
+        var mimoContainer = document.createElement("div");
+        mimoContainer.style.width = '100%';
+        mimoContainer.style.height = '800px';
+        mimoContainer.appendChild(mimoPlayer);
+
+        //Add container do Body
+        d.body.getElementsByClassName('live-commerce')[0].appendChild(mimoContainer);
+      };
+      js.src = "//sdk.mimo.com.br/0.0.1/index.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'mimo-jssdk'));
   }, 500);
 };
+
+// 10. Banner home fix
+if (window.location.pathname === '/' && isMobile) {
+  document.getElementsByClassName('fullbanner')[0].setAttribute('style', 'height: 420px;')
+  setTimeout(function () {
+    document.getElementsByClassName('owl-wrapper-outer')[0].setAttribute('style', 'height: 420px;')
+  }, 500);
+}
 
 /*
  *

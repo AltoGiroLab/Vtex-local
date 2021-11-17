@@ -521,7 +521,8 @@ ul, li {
 }
 
 .installment {
-  display: none;
+  color: var(--color-custom-03);
+  font-size: 18px;
 }
 
 .wrapper-buy-button-asynchronous {
@@ -529,8 +530,9 @@ ul, li {
 }
 
 .ag-prateleira .price .best-price {
+  display: block;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   text-transform: uppercase;
   color: #E27C73;

@@ -1241,6 +1241,18 @@ body {
   position: relative;
   color: var(--color-custom-07);
   text-decoration: none;
+  padding: 26px 0;
+}
+.nav-menu .menu-item:hover > a:after,
+.nav-menu .menu-item.active > a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: var(--color-custom-07);
 }
 
 .header-menu .menu-item.active,
@@ -4277,7 +4289,8 @@ span {
 }
 
 .installment {
-	display:none;
+  color: var(--color-custom-03);
+  font-size: 18px;
 }
 
 .dimension-Cor {
@@ -4533,6 +4546,34 @@ span {
 		font-size: 25px;
 		line-height: inherit;
   }
+}
+
+.h2,
+.showcase-default h2 {
+  display: flex;
+  align-items: center;
+
+  font-family: "Gibson";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  text-transform: uppercase;
+  line-height: 52px;
+  padding-top: 30px;
+  margin: 0;
+
+  @media(max-width: 450px) {
+		font-size: 18px;
+		line-height: inherit;
+  }
+
+  img {
+    margin-right: 0.5rem;
+  }
+}
+
+.showcase-default h2:not(.h2) {
+  display: none;
 }
 
 // Página Regulamentos
