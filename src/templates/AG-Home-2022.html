@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce">
+<head>
+    <vtex:contentPlaceHolder id="htmlSeo" />
+    <vtex:template id="AG-commonStyles-2022" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SportingGoodsStore",
+            "name": "Alto Giro",
+            "image": "https://mkt.altogiro.net/lojas-fisicas/alto-giro-matriz-loja-fisica.jpg",
+            "@id": "https://www.altogiro.net/",
+            "url": "https://www.altogiro.net",
+            "telephone": "+554430330106",
+            "priceRange": "$$$",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Rua Gaspar Ricardo, 471",
+                "addressLocality": "Maringá",
+                "addressRegion" : "Paraná",
+                "postalCode": "87040-365",
+                "addressCountry": "BR"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -23.4224391,
+                "longitude": -51.9099157
+            },
+            "openingHoursSpecification": [{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+            },{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "08:00",
+                "closes": "13:00"
+            },{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "08:00",
+                "closes": "13:00"
+            }],
+            "sameAs": [
+                "https://www.facebook.com/altogirooficial",
+                "https://www.instagram.com/altogiro/",
+                "https://www.youtube.com/user/altogirooficial",
+                "https://www.linkedin.com/company/alto-giro",
+                "https://www.altogiro.net/"
+            ] 
+        }
+    </script>
+</head>
+<body>
+    <vtex:template id="AG-Header-2022" />
+    <main>
+        <section class="banner-home">
+            <vtex:contentPlaceHolder id="Banner Principal Home" />
+        </section>
+        <section class="container">
+            <div class="categories categories-home">
+                <ul>
+                    <li>
+                        <a href="/feminino/fitness">
+                            <img src="/arquivos/home-categoria-fitness.jpg" alt="Fitness" />
+                            <button class="btn btn-lg btn-outline-black">
+                                Fitness <i class="fa-solid fa-arrow-right fa-lg"></i>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/feminino/ag-beach/">
+                            <img src="/arquivos/home-categoria-moda-praia.jpg" alt="Moda Praia" />
+                            <button class="btn btn-lg btn-outline-black">
+                                Moda Praia <i class="fa-solid fa-arrow-right fa-lg"></i>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/sale/ag-free">
+                            <img src="/arquivos/home-categoria-ag-free.jpg" alt="Ag Free" />
+                            <button class="btn btn-lg btn-outline-black">
+                                Ag Free <i class="fa-solid fa-arrow-right fa-lg"></i>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/feminino/fitness/plus-size">
+                            <img src="/arquivos/home-categoria-plus-size.jpg" alt="Plus Size" />
+                            <button class="btn btn-lg btn-outline-black">
+                                Plus Size <i class="fa-solid fa-arrow-right fa-lg"></i>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/feminino/beach-tennis?O=OrderByReleaseDateDESC">
+                            <img src="/arquivos/home-categoria-thassia-naves.jpg" alt="TN - Thassia Naves" class="hide-mobile" />
+                            <img src="/arquivos/home-categoria-thassia-naves-mobile.jpg" alt="TN - Thassia Naves" class="hide-desktop" />
+                            <button class="btn btn-lg btn-outline-black">
+                                TN - Thassia Naves <i class="fa-solid fa-arrow-right fa-lg"></i>
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="container">
+            <div class="carousel carousel-home-01">
+                <div class="carousel-header">
+                    <vtex:contentPlaceHolder id="Title Carousel Home 01" />
+                    <vtex:contentPlaceHolder id="Link Carousel Home 01" />
+                </div>
+                <vtex:contentPlaceHolder id="Carousel Home 01" />
+            </div>
+        </section>
+        <section class="rich-content rich-content-home-01">
+            <vtex:contentPlaceHolder id="Banner Middle Home" />
+        </section>
+        <section class="promos promos-home">
+            <div class="container">
+                <vtex.cmc:PrimeiraCompra />
+                <!-- <vtex.cmc:FreteGratis /> -->
+                <vtex.cmc:primeiraTroca />
+                <vtex.cmc:Pix />
+            </div>
+        </section>
+        <section class="container">
+            <div class="carousel carousel-home-02">
+                <div class="carousel-header">
+                    <vtex:contentPlaceHolder id="Title Carousel Home 02" />
+                    <vtex:contentPlaceHolder id="Link Carousel Home 02" />
+                </div>
+                <vtex:contentPlaceHolder id="Carousel Home 02" />
+            </div>
+        </section>
+        <section class="container">
+            <div class="instagram">
+                <div class="instagram-header">
+                    <main class="title">
+                        <h2 class="h2">Siga a comunidade #funfitness</h2>
+                    </main>
+                    <aside class="actions hide-mobile">
+                        <ul>
+                            <li class="profile">
+                                <a href="http://instagram.com/altogiro" target="_blank">
+                                    <img src="/arquivos/ag-instagram.jpg" alt="Instagram @AltoGiro" />
+                                    @altogiro
+                                </a>
+                            </li>
+                            <li class="follow">
+                                <a href="http://instagram.com/altogiro" target="_blank" class="button">
+                                    Seguir <i class="fa-solid fa-arrow-right fa-lg"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+                <!--<div id="instafeed"></div>-->
+                <div class="actions hide-desktop">
+                    <ul>
+                        <li class="follow">
+                            <a href="http://instagram.com/altogiro" target="_blank" class="button">
+                                Seguir <i class="fa-solid fa-arrow-right fa-lg"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <vtex:template id="AG-Footer-2022" />
+    <vtex:template id="AG-commonScripts-2022" />
+    <!--<script src="https://cdn.rawgit.com/stevenschobert/instafeed.js/master/dist/instafeed.min.js" rel="preconnect" defer="defer"></script>-->
+    <!--<script src="https://altogirorc.vteximg.com.br/arquivos/ag-instagram.min.js?v=1632940685" rel="preconnect" defer="defer"></script>-->
+    <script src="/arquivos/ag-home-2022.js?v=1643824172" async="async"></script>
+</body>
+</html>

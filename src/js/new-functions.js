@@ -11,6 +11,10 @@
  * 8. Fix flag label on shelfs
  * 9. Get cart id on Live Commerce page
  * 10. Banner home fix
+ * 11. New toolbar
+ * 12. Fix menu mobile
+ * 13. Fix search mobile
+ * 14 Fix filter in department page
  * 
  */
 
@@ -35,7 +39,6 @@ if (document.getElementsByClassName('group_1').length === 2) {
 
 // 3. Mini Cart and WhatsApp Button modifier
 // 4. WhatsApp button position modifier
-if (!isMobile) {
   $(".btn-mini-cart").on("click", function() {
     MiniCartModifier();
     setTimeout(function () {
@@ -59,7 +62,6 @@ if (!isMobile) {
       WhatsAppButtonModifier();
     }, 500);
   });
-};
 
 // 5. Request product info via VTEX Search API and add video to page
 const pathNameFiveFunc = window.location.pathname
@@ -144,11 +146,33 @@ if (window.location.pathname === '/live-commerce') {
 };
 
 // 10. Banner home fix
+// Caso tenha slider na barra preta do topo, precisa ser [1], senão precisa ser [0]
 if (window.location.pathname === '/' && isMobile) {
-  document.getElementsByClassName('fullbanner')[0].setAttribute('style', 'height: 420px;')
+  // document.getElementsByClassName('fullbanner')[0].setAttribute('style', 'height: 420px;')
   setTimeout(function () {
-    document.getElementsByClassName('owl-wrapper-outer')[0].setAttribute('style', 'height: 420px;')
+    document.getElementsByClassName('owl-wrapper-outer')[1].setAttribute('style', 'height: 464px;')
   }, 500);
+}
+
+// 11. New toolbar
+$('.toolbar__header .container .right').slick({
+  arrows: false,
+  autoplay: true,
+})
+
+$('.toolbar__header .container.mobile .all').slick({
+  arrows: false,
+  autoplay: true,
+})
+
+// 12. Fix menu mobile
+if (isMobile) {
+  fixMobileMenu();
+}
+
+// 13. Fix search mobile
+if (isMobile) {
+  fixMobileSearch();
 }
 
 /*
@@ -349,40 +373,42 @@ function addVideosToProduct() {
       // Get thumbnails from product active
       const productImages = document.getElementById('newThumbsDiv');
 
-      let productVideos = Array.from(responseDataExactProductVideos).map(function(item, index){
-        let videoCode = '';
-      
-        if (item.includes('https://www.youtube.com/watch?v=')) {
-          videoCode = item.substring(item.indexOf("=") + 1);
-        }
-      
-        if (item.includes('https://youtu.be/')) {
-          videoCode = item.substring(item.indexOf(".be/") + 4);
-        }
-
-        return `
-          <li key=${index}>
-            <a href="javascript:void(0);" data-video=${videoCode} class="videoThumb">
-              <img src="https://img.youtube.com/vi/${videoCode}/sddefault.jpg" width="58" height="70" />
-            </a>
-          </li>
-        `;
-      });
-
-      let productVideosUl = `<ul class="video-thumbs">${productVideos.join('')}</ul>`;
-        productImages.innerHTML = productImages.innerHTML + productVideosUl;
-
-      $(".video-thumbs a").on("click", function () {
-        divVideo.setAttribute('style', 'display:block;');
-        let videoCode = $(this).attr('data-video');
-        let embedCode = `<iframe width="422" height="514" src="https://www.youtube.com/embed/${videoCode}?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="height:514px!important"></iframe>`;
-        document.getElementById('divVideo').innerHTML = embedCode;
-      });
-      
-      $(".thumbs a").on("click", function () {
-        divVideo.setAttribute('style', 'display:none;');
-        document.getElementById('divVideo').innerHTML = '';
-      });
+      if (responseDataExactProductVideos.length > 0) {
+          let productVideos = Array.from(responseDataExactProductVideos).map(function(item, index){
+            let videoCode = '';
+          
+            if (item.includes('https://www.youtube.com/watch?v=')) {
+              videoCode = item.substring(item.indexOf("=") + 1);
+            }
+          
+            if (item.includes('https://youtu.be/')) {
+              videoCode = item.substring(item.indexOf(".be/") + 4);
+            }
+    
+            return `
+              <li key=${index}>
+                <a href="javascript:void(0);" data-video=${videoCode} class="videoThumb">
+                  <img src="https://img.youtube.com/vi/${videoCode}/sddefault.jpg" width="58" height="70" />
+                </a>
+              </li>
+            `;
+          });
+    
+          let productVideosUl = `<ul class="video-thumbs">${productVideos.join('')}</ul>`;
+            productImages.innerHTML = productImages.innerHTML + productVideosUl;
+    
+          $(".video-thumbs a").on("click", function () {
+            divVideo.setAttribute('style', 'display:block;');
+            let videoCode = $(this).attr('data-video');
+            let embedCode = `<iframe width="422" height="514" src="https://www.youtube.com/embed/${videoCode}?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="height:514px!important"></iframe>`;
+            document.getElementById('divVideo').innerHTML = embedCode;
+          });
+          
+          $(".thumbs a").on("click", function () {
+            divVideo.setAttribute('style', 'display:none;');
+            document.getElementById('divVideo').innerHTML = '';
+          });
+      }
     }
   };
   xhr.open('GET', urlGet);
@@ -515,4 +541,106 @@ function getCartCookie(name) {
   } else {
     console.log('Erro ao pegar id do carrinho');
   }
+}
+
+// 10. Only in Call Functions
+
+// 11. Only in Call Functions
+
+/*
+ *
+ * 12. Fix menu mobile
+ * 
+ */
+function fixMobileMenu() {
+  // select target
+  let target = document.querySelector('.nav-menu');
+  let classes;
+
+  // create new observator instance
+  let observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      classes = mutation.target.classList.value
+
+      if (classes.includes('nav-menu--active')) {
+        divLayer.setAttribute('style', 'position: absolute;top: 0; left: 0; width:100vw; height:100vh; background: rgba(0,0,0,0.5); transition: all 0.5s 0s ease;');
+        divLayer.setAttribute('onClick', 'toggleOpenMenuMobile()');
+      } else {
+        divLayer.setAttribute('style', 'position: absolute; top: 0; left: -100vw; width:100vw; height:100vh; transition: all 0.5s 0s ease;');
+      }
+
+    });
+  });
+
+  // observator config
+  let config = { attributes: true };
+
+  // trigger
+  observer.observe(target, config);
+
+  // create transparency div
+  const divLayer = document.createElement('div');
+  divLayer.setAttribute('id', 'divLayer');
+  divLayer.setAttribute('style', 'position: absolute; top: 0; left: -100vw; width:100vw; height:100vh; transition: all 0.5s 0s ease;');
+  document.body.append(divLayer);
+}
+
+/*
+ *
+ * 13. Fix search mobile
+ * 
+ */
+
+function fixMobileSearch() {
+  // select target
+  let target = document.querySelector('.form-search');
+  let classes;
+
+  // create new observator instance
+  let observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      classes = mutation.target.classList.value
+
+      if (classes.includes('active')) {
+        console.log('oie')
+        divLayerSearch.setAttribute('style', 'position: absolute;top: 0; left: 0; width:100vw; height:100vh; background: rgba(0,0,0,0.5); transition: all 0.5s 0s ease;');
+        divLayerSearch.setAttribute('onClick', 'toggleSubMenuSearch()');
+      } else {
+        divLayerSearch.setAttribute('style', 'position: absolute; top: 0; left: -100vw; width:100vw; height:100vh; transition: all 0.5s 0s ease;');
+      }
+
+    });
+  });
+
+  // observator config
+  let config = { attributes: true };
+
+  // trigger
+  observer.observe(target, config);
+
+  // create transparency div
+  const divLayerSearch = document.createElement('div');
+  divLayerSearch.setAttribute('id', 'divLayerSearch');
+  divLayerSearch.setAttribute('style', 'position: absolute;top: 0; left: -100vw; width:100vw; height:100vh; background: rgba(0,0,0,0.5); transition: all 0.5s 0s ease;');
+  document.body.append(divLayerSearch);
+}
+
+/*
+ *
+ * 14 Fix filter in department page
+ * 
+ */
+let coll = document.getElementsByClassName("sub-titulo");
+let i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        let content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
 }

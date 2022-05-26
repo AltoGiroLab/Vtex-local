@@ -1,0 +1,122 @@
+<footer class="footer">
+    <section class="banner-footer">
+        <img src="/arquivos/banner-footer.jpg" alt="Alto Giro. Desde 1983 pessoas mais belas, mais elas" />
+    </section>
+    <main class="main container">
+        <div class="coluna coluna-01">
+            <img src="/arquivos/logo-altogiro.png" alt="Logo Alto Giro" width="165" height="24" />
+            <p>Referência na confecção de roupas fitness há mais de três décadas, a Alto Giro sempre esteve em busca de oferecer o que há de melhor em tecnologia e beleza aos nossos clientes e parceiros.</p>
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/altogirooficial" title="Visite o Facebook da Alto Giro">
+                        <i class="fa-brands fa-facebook-f fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/altogiro/" title="Siga o Instagram da Alto Giro">
+                        <i class="fa-brands fa-instagram fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/user/altogirooficial" title="Confira o YouTube da Alto Giro">
+                        <i class="fa-brands fa-youtube fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="coluna coluna-02">
+            <ul>
+                <li><strong>Sobre a AG</strong></li>
+                <li><a href="/nossas-lojas">Nossas lojas</a></li>
+                <li><a href="/seja-revendedor">Seja um revendedor</a></li>
+                <li><a href="/sobre-a-marca">Sobre a marca</a></li>
+                <li><a href="/privacidade">Privacidade</a></li>
+                <li><a href="/regulamentos">Regulamentos</a></li>
+            </ul>
+        </div>
+        <div class="coluna coluna-03">
+            <ul>
+                <li><strong>Para você</strong></li>
+                <li><a href="/perguntas-frequentes">Dúvidas frequentes</a></li>
+                <li><a href="/_secure/account/#/orders">Acompanhe seus pedidos</a></li>
+                <li><a href="/entrega">Formas de entrega</a></li>
+                <li><a href="/pagamento">Formas de pagamento</a></li>
+                <li><a href="/trocas-e-devolucoes">Trocas e devoluções</a></li>
+            </ul>
+        </div>
+        <div class="coluna coluna-04">
+            <ul>
+                <li><strong>Atendimento</strong></li>
+                <li>De segunda a sexta-feira:<br /> das 8h às 18h</li>
+                <li>Fone: (44) 3033-0106</li>
+            </ul>
+            <ul>
+                <li><strong>Segurança</strong></li>
+                <li>
+                    <div class="selos">
+                        <ul>
+                            <li>
+                                <a href="http://secure.vtex.com/?an=td0295" target="_blank">
+                                    <img src="//io.vtex.com.br/front-libs/assets/pci/vtex-pci-100.png" alt="VTEX PCI Certified" width="59" height="36" />
+                                </a>
+                            </li>
+                            <li>
+                                <a id="seloEbit" href="http://www.ebit.com.br/99456" target="_blank" onclick="redir(this.href);"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <div class="copyright">
+        <p>Alto Giro © 2021. Todos os direitos reservados. Todas as marcas e suas imagens são de propriedade de seus respectivos donos.</p>
+        <p>É vedada a reprodução, total ou parcial, de qualquer conteúdo sem expressa autorização.</p>
+    </div>
+    <div id="footer-popCookies" class="popCookies" style="display:none;">
+        <div class="popCookies__content">
+            <p>Nós utilizamos cookies e outras tecnologias para melhorar sua experiência, ao utilizar a Plataforma você concorda com a  
+                <a href="https://www.altogiro.net/privacidade" target="_blank">Política de Privacidade</a>.
+                <button id="popCookies-btn">Estou Ciente</button>
+            </p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        console.log(ca);
+        return "";
+    }
+    
+    $(document).ready(function() {
+        if (getCookie('privacidade') == ""){
+            $("#footer-popCookies").addClass("openned");
+        }
+        $('#popCookies-btn').on('click', function() {
+            setCookie('privacidade', 'privacidade', 7);
+            $("#footer-popCookies").removeClass("openned");
+        });
+    });
+    /* ]]> */
+    </script>
+    <script type="text/javascript" id="getSelo" src="https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?99456"></script>
+</footer>

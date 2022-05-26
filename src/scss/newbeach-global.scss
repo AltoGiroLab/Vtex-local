@@ -3464,3 +3464,195 @@ a, button, input[type="submit"], input[type="button"], .btn, a:before, a:after {
 .content-block-segundo-cluster {
 	position: relative;
 }
+
+/*
+ * 2021 new styles
+ */
+
+// New Titles
+.h2,
+.showcase-default h2 {
+  display: flex;
+  align-items: center;
+
+  font-family: "Gibson";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  text-transform: uppercase;
+  line-height: 52px;
+  padding-top: 30px;
+  margin: 0;
+
+  @media(max-width: 450px) {
+		font-size: 18px;
+		line-height: inherit;
+  }
+
+  img {
+    margin-right: 0.5rem;
+  }
+}
+
+.showcase-default h2:not(.h2) {
+  display: none;
+}
+
+.produto .showcase-default h2:not(.h2) {
+  display: block;
+}
+
+// Home Mosaic
+#home-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr [col-start]);
+  grid-template-rows: 1fr;
+  padding: 20px 0;
+
+  @media(max-width: 450px) {
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 1fr [row-start]);
+  }
+
+  .column {
+    width: 400px;
+    position: relative;
+
+    @media(max-width: 450px) {
+      width: 100%;
+    }
+    
+    &-1 {
+      .slider {
+        &-pagination-container {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 65px;
+          z-index: 1;
+
+          display: flex;
+          justify-content: flex-end;
+
+          .btn {
+            background: #fff;
+            color: var(--color-custom-black);
+            font-size: inherit;
+            padding: 0 5px;
+
+            &.slick-disabled {
+              color: var(--color-custom-black100)
+            }
+            &:hover {
+              transform: none;
+            }
+          }
+        }
+
+        &-top {
+          height: 445px;
+
+          img {
+            min-height: 445px;
+            max-height: 445px;
+          }
+        }
+
+        &-bottom {
+          height: 65px;
+          background: #fff;
+          display: flex!important;
+          align-items: center;
+          padding: 10px;
+
+          h2 {
+            font-family: "Gibson";
+            font-size: 23px;
+            font-weight: normal;
+            margin: 0;
+          }
+
+          .btn {
+          }
+        }
+      }
+    }
+
+    &-2,
+    &-3 {
+      .slider {
+        &-top,
+        &-bottom {
+          height: 255px;
+
+          img {
+            min-height: 255px;
+            max-height: 255px;
+          }
+        }
+      }
+    }
+
+    &-2 {
+      .slider {
+        &-bottom {
+          background: #fff;
+          display: flex!important;
+          align-items: center;
+          justify-content: center;
+
+          .slick-slide,
+					div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+          }
+
+          h3 {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Trocas e Devoluções - Extras
+.ag-mt--10 {
+  margin-top: -10px !important;
+}
+
+// Dúvidas
+.ag-doubt {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	padding: 45px 0px;
+}
+
+.ag-doubt .nb-title-content {
+	margin-bottom: 35px
+}
+
+.ag-doubt .btn.btn-black {
+	// font-family: 'GibsonSemiBd';
+	font-style: normal;
+	font-size: 23px;
+	text-decoration: none;
+	color: #fff !important;
+}
+
+.ag-doubt #ag-tel-info {
+	// font-family: 'GibsonSemiBd';
+	color: #494747;
+	margin-top: 40px;
+	font-size: 16px;
+}
+
+.ag-doubt .fa-whatsapp {
+	margin-right: 7px;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce">
+<head>
+    <vtex:metaTags/>
+    <vtex:template id="AG-commonStyles-2022" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SportingGoodsStore",
+            "name": "Alto Giro",
+            "image": "https://mkt.altogiro.net/lojas-fisicas/alto-giro-matriz-loja-fisica.jpg",
+            "@id": "https://www.altogiro.net/",
+            "url": "https://www.altogiro.net",
+            "telephone": "+554430330106",
+            "priceRange": "$$$",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Rua Gaspar Ricardo, 471",
+                "addressLocality": "Maringá",
+                "addressRegion" : "Paraná",
+                "postalCode": "87040-365",
+                "addressCountry": "BR"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -23.4224391,
+                "longitude": -51.9099157
+            },
+            "openingHoursSpecification": [{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+            },{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "08:00",
+                "closes": "13:00"
+            },{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "08:00",
+                "closes": "13:00"
+            }],
+            "sameAs": [
+                "https://www.facebook.com/altogirooficial",
+                "https://www.instagram.com/altogiro/",
+                "https://www.youtube.com/user/altogirooficial",
+                "https://www.linkedin.com/company/alto-giro",
+                "https://www.altogiro.net/"
+            ] 
+        }
+    </script>
+</head>
+<body>
+    <vtex:template id="AG-Header-2022" />
+    <main class="pages container">
+        <section class="product-header">
+            <vtex.cmc:breadCrumb />
+        </section>
+        <section class="product-info">
+            <aside class="product-pictures">
+                <vtex.cmc:ProductImage/>
+            </aside>
+            <main class="product-details">
+                <vtex.cmc:discountHightLight/>
+                <h1 class="h3"><vtex.cmc:productName /></h1>
+                <vtex.cmc:skuReference />
+                <vtex.cmc:skuPrice />
+                <vtex.cmc:skuSelection />
+                <vtex.cmc:BuyInPage />
+                <vtex.cmc:BuyTogether />
+            </main>
+        </section>
+        <section class="product-extras">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="tab-active">
+                    <a href="#descricao" aria-controls="descricao" role="tab" data-toggle="tab">Descrição</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade" id="descricao">
+                    <vtex.cmc:ProductDescription />
+                </div>
+            </div>
+        </section>
+        <section class="carousel">
+            <div class="carousel-header">
+                <vtex:contentPlaceHolder id="Title Carousel" />
+                <vtex:contentPlaceHolder id="Link Carousel" />
+            </div>
+            <vtex:contentPlaceHolder id="Carousel"/>
+        </section>
+    </main>
+    <vtex:template id="AG-Footer-2022" />
+    <vtex:template id="AG-commonScripts-2022" />
+    <script src="/arquivos/ag-product-2022.js?v=1643824172" async="async"></script>
+</body>
+</html>

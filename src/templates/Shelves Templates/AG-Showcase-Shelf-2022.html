@@ -1,0 +1,27 @@
+<article class="product product-shelf">
+    <a href="$product.Uri" title="$product.HtmlEscapedName">
+        <div class="discount">
+            $product.DiscountHightLight
+        </div>
+        <header class="header">
+            $product.GetImageTag(2)
+        </header>
+        <main class="main">
+            <h3 class="product-name">$product.Name</h3>
+            #if ($product.IsInStock)
+                <div class="product-price">
+                    #if ($product.HasBestPrice)
+                        <span class="product-price-old">
+                            $product.ListPrice
+                        </span>
+                    #end
+                        <span class="product-price-new">
+                            $product.BestPrice
+                        </span>
+                </div>
+            #else
+                <div class="out-of-stock">Produto Esgotado</div>
+            #end
+        </main>
+    </a>
+</article>

@@ -7,24 +7,23 @@
  *
  */
 $(document).ready( function(){
-	
-	if( $.fn.ADMAKEadvancedFilter ){
+
+	if ($.fn.ADMAKEadvancedFilter) {
 		$(document).ADMAKEadvancedFilter({
             tipoFiltros     : {},
 		});
 	}
-	if( $.fn.ADMAKEmenu ){
+	if ($.fn.ADMAKEmenu) {
 		$(document).ADMAKEmenu();
 	}
 
 	var $btnComprar = $('.btn-add-buy-button-asynchronous');
-	if( $btnComprar.length ){
+	if ($btnComprar.length) {
 		$btnComprar.html('Adicionar à  sacola');
 	}
 
 	var $btnComprarProduto = $('.buy-button.buy-button-ref');
-	if( $btnComprarProduto.length ){
-
+	if ($btnComprarProduto.length) {
 		if( $('#comprar-flutuante').length ){
 			var $comprarFlutuante = $('#comprar-flutuante');
 			var btnComprarTop = $('.product-info .buy-button-box').offset().top;
@@ -50,7 +49,10 @@ $(document).ready( function(){
 
 		var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false;
 
-		$btnComprarProduto.click( function(){
+		$btnComprarProduto.click(function (e) {
+			// e.preventDefault();
+			console.log('clicou');
+			
 			var $this = $(this);
 			var url   = $this.attr('href');
 			// if( url.indexOf('qty=1') > 0 ){
@@ -59,7 +61,11 @@ $(document).ready( function(){
 
 			if(!isMobile) {
 				if( url.indexOf('sku=') > 0 ){
-					$this.attr('href', url.replace('qty=1', 'qty='+ parseInt( $('.buy-button-box .box-qtd .qtd').val() ) ) );
+					// Linha comentada pra não dar o problema de redirecionamento quando clica no botão comprar
+					// Esse redirecionamento retira o qty=1 da url e coloca um qty=NaN,
+					// indicando que o parseInt da função abaixo, não é um número
+					// Walter Jaworski - 10/12/2021
+					// $this.attr('href', url.replace('qty=1', 'qty='+ parseInt( $('.buy-button-box .box-qtd .qtd').val() ) ) );
 					var id = url.substring((url.indexOf('sku=')+4),url.indexOf('&qty='));
 					var item = {
 						id: id,
@@ -131,7 +137,7 @@ $(document).ready( function(){
 			var win = $(this); //this = window
 			if (win.width() <= 650) {
 				if ($('.box-banner img').length) {
-					$('.box-banner img').each(function(){
+					$('.box-banner img').each(function () {
 						$(this).attr('src','/arquivos/' + $(this).attr('alt') + '-mobile.jpg');
 						if ($(this).attr('alt') == 'banner-amor-ta-on') {
 							$(this).attr('src','/arquivos/' + $(this).attr('alt') + '-mobile.gif');
@@ -141,16 +147,38 @@ $(document).ready( function(){
 			}
 		}, 50);
 
-		var $fullbanner = $(".fullbanner");
-		if( $fullbanner.length ){
-			$fullbanner.owlCarousel({
+		$('.fullbanner').owlCarousel({
+			items: 1,
+			singleItem: true,
+			autoPlay: true,
+			stopOnHover: true,
+			navigation: true,
+			autoHeight: false,
+			navigationText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
+		})
+
+		// var $fullbanner = $(".fullbanner");
+		// if( $fullbanner.length ){
+		// 	$fullbanner.owlCarousel({
+		// 	 	items 			: 1,
+		// 	    singleItem 		: true,
+		// 	    autoPlay 		: true,
+		// 	    stopOnHover 	: true,
+		// 	    navigation 		: true,
+		// 	    autoHeight 		: false,
+		// 	    navigationText 	: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
+		// 	});
+		// }
+
+		var $carouseltop = $(".owl-carousel-top");
+		if( $carouseltop.length ){
+			$carouseltop.owlCarousel({
 			 	items 			: 1,
 			    singleItem 		: true,
 			    autoPlay 		: true,
-			    stopOnHover 	: true,
-			    navigation 		: true,
-			    autoHeight 		: true,
-			    navigationText 	: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
+			    stopOnHover 	: false,
+			    navigation 		: false,
+			    autoHeight 		: false,
 			});
 		}
 

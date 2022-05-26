@@ -1,48 +1,78 @@
-var mySwiper1 = new Swiper('#slide-collection-grid-home', {
-	// If we need pagination
-	pagination: {
-		el: '.swiper-pagination',
-		type: 'progressbar',
-	},
-	navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
-	},
-});
-  
-$(document).ready(function() {
-	var lightbox = GLightbox({ 
-		    selector: '.glightbox',
-		    width: '80vw',
-		    height: 'auto',
-		    videosWidth: '80vw'
+
+$(document).ready(function () {
+	// dev only
+	// let containerMosaic = document.getElementsByClassName('ag-grid-collection-complet')[1]
+	// containerMosaic.removeAttribute('style')
+	// document.getElementsByClassName('ag-grid-collection-complet')[1].removeAttribute('style')
+	document.getElementsByClassName('fullbanner')[0].removeAttribute('style')
+	// $('.fullbanner').slick()
+	// dev only
+
+	$('#home-mosaic .column-1 .slider-top').slick({
+		lazyLoad: 'ondemand',
+		infinite: false,
+		arrows: false,
+	}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		changeMosaicSlide(currentSlide, nextSlide)
 	});
 
+	$('#home-mosaic .column-1 .slider-bottom').slick({
+		lazyLoad: 'ondemand',
+		infinite: false,
+		arrows: true,
+		appendArrows: '.slider-pagination-container',
+		prevArrow: '<button class="btn btn-default btn-lg"><i class="fa fa-chevron-left"></i></button>',
+		nextArrow: '<button class="btn btn-default btn-lg"><i class="fa fa-chevron-right"></i></button>',
+	}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		changeMosaicSlide(currentSlide, nextSlide)
+	});
 
-	// $('#instagram-feed').instaJS({
-	// 	username: 'altogiro',
-	// 	accessToken: 'IGQVJYb0R5bmhzSnFPVHpGN1YwZA0E0TklPZAnliNGFRZAThoREpCV3NpQ2tTRV9RalgtNjR5ci0yZA1dlMExzNUc0MUVDYmJIakE3LV91dXYxVmtRTG5UNjBRckEwSEpuMWRzX2lSM3ZANUEtkenNYcENyOAZDZD',
-	// 	limit: 10
-	// })
-	/*
+	$('#home-mosaic .column-2 .slider-top').slick({
+		lazyLoad: 'ondemand',
+		infinite: false,
+		arrows: false,
+	}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		changeMosaicSlide(currentSlide, nextSlide)
+	});
 
-	var user = 'altogiro';
-	var totalImages = 10;
-	fetch('https://www.instagram.com/'+ user +'/?__a=1')
-		.then(res => res.json())
-		.then(response => {
-			
-			var items = response.graphql.user.edge_owner_to_timeline_media.edges;
+	$('#home-mosaic .column-2 .slider-bottom').slick({
+		lazyLoad: 'ondemand',
+		infinite: false,
+		arrows: false,
+	}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		changeMosaicSlide(currentSlide, nextSlide)
+	});
 
-			items.forEach(function (item, n) {
-				if ((n + 1) <= totalImages) {
+	$('#home-mosaic .column-3 .slider-top').slick({
+		lazyLoad: 'ondemand',
+		infinite: false,
+		arrows: false,
+	}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		changeMosaicSlide(currentSlide, nextSlide)
+	});
 
-					var li = '<li><a href="https://www.instagram.com/p/' + item.node.shortcode +'" target="_blank"><img src=' + item.node.thumbnail_src + '></a></li>';
-					
-					document.querySelector('#instagram-feed').innerHTML += li;
-				}
-			});
+	$('#home-mosaic .column-3 .slider-bottom').slick({
+		lazyLoad: 'ondemand',
+		infinite: false,
+		arrows: false,
+	}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		changeMosaicSlide(currentSlide, nextSlide)
+	});
+
+	function changeMosaicSlide(currentSlide, nextSlide) {
+		$('.slider-top').each(function () {
+			if (currentSlide > nextSlide) {
+				$(this).slick('slickPrev')
+			} else {
+				$(this).slick('slickNext')
+			}
 		})
-		.catch(error => console.log('Error:', error));
-		*/
+		$('.slider-bottom').each(function () {
+			if (currentSlide > nextSlide) {
+				$(this).slick('slickPrev')
+			} else {
+				$(this).slick('slickNext')
+			}
+		})
+	}
 });

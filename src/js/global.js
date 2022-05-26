@@ -9,6 +9,7 @@ $(document).ready(function() {
 		var name = $(this).attr('title');
 		$(this).append("<img src='https://www.altogiro.net/arquivos/" + convertToSlug(name) + ".jpg' >");
 	});
+
 	$(".filtro-tamanho .opcoes a").each(function() {
 		var text = $(this).text().replace(/\(.*\)/, '').replace(/\s/g, "");
 		$(this).text(text);
@@ -37,7 +38,7 @@ $(document).ready(function() {
 		$('.main .searchResultsTime').not(':last').remove();
 		$('.resultado-busca-numero .label').text('Encontramos');
 		var value = $('.resultado-busca-numero .value').text();
-		$('.resultado-busca-numero .value').text(value + ' PEÃ‡AS').after('<span> que fazem o seu estilo</span');
+		$('.resultado-busca-numero .value').text(value + ' PEÇAS').after('<span> que fazem o seu estilo</span');
 	}
 
 	if ($('#admake-advanced-filter').length) {
@@ -48,17 +49,19 @@ $(document).ready(function() {
 	var i;
 
 	for (i = 0; i < coll.length; i++) {
-  		coll[i].addEventListener("click", function() {
-    		this.classList.toggle("active");
-    		var content = this.nextElementSibling;
-    		if (content.style.maxHeight){
-      			content.style.maxHeight = null;
-    		} else {
-      		content.style.maxHeight = content.scrollHeight + "px";
-    		} 
-  	});
-}
+		coll[i].addEventListener("click", function () {
+			this.classList.toggle("active");
+			var content = this.nextElementSibling;
+			if (content.style.maxHeight) {
+				content.style.maxHeight = null;
+			} else {
+				content.style.maxHeight = content.scrollHeight + "px";
+			}
+		});
+	}
 });
+
+
 
 function populateCart() {
 	var times = 0;
@@ -77,13 +80,11 @@ function populateCart() {
 	},1000);
 }
 
-function convertToSlug(Text)
-{
-    return Text
-        .toLowerCase()
-        .replace(/[^\w ]/g,'')
-        .replace(/ /g,'-')
-        ;
+function convertToSlug(Text) {
+	return Text
+		.toLowerCase()
+		.replace(/[^\w ]/g, '')
+		.replace(/ /g, '-');
 }
 
 function removeItemCarrinho(index) {
@@ -101,13 +102,13 @@ function removeItemCarrinho(index) {
 
 function recarregaCarrinho() {
 	// Default options
-    var options = $.extend( {
+		var options = $.extend( {
 		miniCartAux 	: '#mini-cart-admake-aux',
 		miniCart 		: '#mini-cart-admake',
 		showQtd			: true,
 		miniCartQtd		: '.mini-cart-qty-admake',
 		miniCartTotal	: '#mini-cart-admake-total',
-        htmlItem 		: 	'<div class="mini-cart-item item-{{ID}}">' +
+				htmlItem 		: 	'<div class="mini-cart-item item-{{ID}}">' +
 							'	' +
 							'	<span class="imagem">' +
 							'		{{IMAGEM}}' +
@@ -124,38 +125,38 @@ function recarregaCarrinho() {
 							'		</span>' +
 							'	</span>' +
 							'</div>',
-    });
+		});
 
-    // Plugin variables
-    var $self       	= this;
-    var $miniCartHeader = null;
+		// Plugin variables
+		var $self       	= this;
+		var $miniCartHeader = null;
 	var $miniCartItens  = null;
 	var $miniCartFooter = null;
 	var $cartInfos 		= null;
 
-    // Put your DOM elements here
-    var elements = {
-        $window   		: $( window ),
-        $miniCart   	: $( options.miniCart ),
-        $miniCartAux   	: $( options.miniCartAux ),
-        $miniCartQtd   	: $( options.miniCartQtd ),
-        $miniCartTotal 	: $( options.miniCartTotal ),
-    };
+		// Put your DOM elements here
+		var elements = {
+				$window   		: $( window ),
+				$miniCart   	: $( options.miniCart ),
+				$miniCartAux   	: $( options.miniCartAux ),
+				$miniCartQtd   	: $( options.miniCartQtd ),
+				$miniCartTotal 	: $( options.miniCartTotal ),
+		};
 
-    var methods = {
-        init : function(){
-            events.winBind();
-        },
+		var methods = {
+				init : function(){
+						events.winBind();
+				},
 		getBoxes : function(){
 			$miniCartHeader = elements.$miniCart.find('.mini-cart-header');
 			$miniCartItens  = elements.$miniCart.find('.mini-cart-itens');
 			$miniCartFooter = elements.$miniCart.find('.mini-cart-footer');
 			$cartInfos 		= elements.$miniCartAux.find('.cart-info');
-        },
+				},
 		clearFieds : function() {
 			$miniCartItens.html('<div style="display; block;margin: 0 auto; width:100px"><img width="100" height="100" src="/arquivos/preloader.gif" /></div>');
 		},
-        getQtd : function(){
+				getQtd : function(){
 			var qtd_calc = 0;
 			vtexjs.checkout.getOrderForm().then(function(orderForm){
 				qtd_calc = orderForm.items.length;
@@ -172,8 +173,8 @@ function recarregaCarrinho() {
 					elements.$miniCart.hide();
 				}
 			});
-        },
-        getItens : function(){
+				},
+				getItens : function(){
 			vtexjs.checkout.getOrderForm().then(function(orderForm){
 				$miniCartItens.html("");
 				$.each( orderForm.items, function(i, item){
@@ -193,8 +194,8 @@ function recarregaCarrinho() {
 			}).done(function(orderForm){
 				console.log('Recarregou o carrinho.');
 			});
-        },
-        getTotal : function(){
+				},
+				getTotal : function(){
 			var preco_total = 0;
 			vtexjs.checkout.getOrderForm().then(function(orderForm){
 				preco_total = orderForm.value;
@@ -202,26 +203,26 @@ function recarregaCarrinho() {
 				var total = 'R$ ' + formatReal(preco_total);
 				elements.$miniCartTotal.html( total );
 			});
-        }
-    };
+				}
+		};
 
-    // Plugin events
-    var events = {
-        winBind : function(){
-           	elements.$window.bind( "load", function(){
-            	methods.getQtd();
-            	methods.getItens();
-            	methods.getTotal();
-           	});
-        },
-    };
+		// Plugin events
+		var events = {
+				winBind : function(){
+						 elements.$window.bind( "load", function(){
+							methods.getQtd();
+							methods.getItens();
+							methods.getTotal();
+						 });
+				},
+		};
 
-    methods.init();
+		methods.init();
 	methods.getBoxes();
 	methods.clearFieds();
 	methods.getQtd();
-    methods.getItens();
-    methods.getTotal();
+		methods.getItens();
+		methods.getTotal();
 }
 
 
@@ -234,7 +235,7 @@ function adicionaUnidade(index) {
 
 		if (item.quantity < 5) {
 			item.quantity = item.quantity + 1;
-    		return vtexjs.checkout.updateItems([item]);
+				return vtexjs.checkout.updateItems([item]);
 		}
 	}).done(function(orderForm){
 		console.log('Quantidade removida!');
@@ -243,38 +244,39 @@ function adicionaUnidade(index) {
 	});
 	*/
 	vtexjs.checkout.getOrderForm().then(function(orderForm) {
-	    var itemIndex = index;
-	    var item      = orderForm.items[itemIndex];
-	    var new_qtd   = item.quantity + 1;
-	    var updateItem = {
-	      index: itemIndex,
-	      quantity: new_qtd
-	    };
-	    return vtexjs.checkout.updateItems([updateItem], null, false);
+			var itemIndex = index;
+			var item      = orderForm.items[itemIndex];
+			var new_qtd   = item.quantity + 1;
+			var updateItem = {
+				index: itemIndex,
+				quantity: new_qtd
+			};
+			return vtexjs.checkout.updateItems([updateItem], null, false);
 	}).done(function(orderForm) {
-	    //console.log('Items atualizados!');
-	    //console.log(orderForm);
+			//console.log('Items atualizados!');
+			//console.log(orderForm);
 
-	    /*
-	    var total = orderForm.value;
+			/*
+			var total = orderForm.value;
 		if(formatReal(total) > formatReal(399.90)) {
 			Swal.fire({
 				icon: 'success',
-				title: 'ParabÃƒÆ’Ã‚Â©ns',
+				title: 'ParabÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ns',
 				showConfirmButton: false,
 				showCloseButton: true,
-				html: 'VocÃƒÆ’Ã‚Âª atingiu R$ 399,90 em compras e pode escolher um cinto GRÃƒÆ’Ã‚ÂTIS ÃƒÂ°Ã…Â¸Ã‹Å“Ã‚Â <br/> Clique no link abaixo para adicionar o seu preferido ao carrinho!',
+				html: 'VocÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âª atingiu R$ 399,90 em compras e pode escolher um cinto GRÃƒÆ’Ã†â€™Ãƒâ€šÃ‚ÂTIS ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸Ãƒâ€¹Ã…â€œÃƒâ€šÃ‚Â <br/> Clique no link abaixo para adicionar o seu preferido ao carrinho!',
 				footer: '<a href="https://www.moikana.com.br/acessorios/cintos">Clique aqui e escolha seu brinde</a>'
 			})
 		}
 		*/
-	    
-	    recarregaCarrinho();
+			
+			recarregaCarrinho();
 	});
 }
 
 function removeUnidade(index) {
 	$('#mini-cart-admake .mini-cart-itens').html('<div style="display; block;margin: 0 auto; width:100px"><img width="100" height="100" src="/arquivos/preloader.gif" /></div>');
+
 	/*
 	vtexjs.checkout.getOrderForm().then(function(orderForm){
 		var item = orderForm.items[index];
@@ -284,7 +286,7 @@ function removeUnidade(index) {
 			return vtexjs.checkout.removeItems([item]);
 		} else {
 			item.quantity = item.quantity - 1;
-    		return vtexjs.checkout.updateItems([item]);
+				return vtexjs.checkout.updateItems([item]);
 		}
 	}).done(function(orderForm){
 		console.log('Quantidade removida!');
@@ -294,35 +296,35 @@ function removeUnidade(index) {
 	*/
 
 	vtexjs.checkout.getOrderForm().then(function(orderForm) {
-	    var itemIndex = index;
-	    var item      = orderForm.items[itemIndex];
-	    var new_qtd   = item.quantity - 1;
+			var itemIndex = index;
+			var item      = orderForm.items[itemIndex];
+			var new_qtd   = item.quantity - 1;
 
-	    if (item.quantity == 1) {
+			if (item.quantity == 1) {
 			return vtexjs.checkout.removeItems([item]);
 			console.log('Item removido!');
 		} else {
-    		var updateItem = {
-		      index: itemIndex,
-		      quantity: new_qtd
-		    };
-		    return vtexjs.checkout.updateItems([updateItem], null, false);
-		    console.log('Item atualizado!');
+				var updateItem = {
+					index: itemIndex,
+					quantity: new_qtd
+				};
+				return vtexjs.checkout.updateItems([updateItem], null, false);
+				console.log('Item atualizado!');
 		}
-	    
-	    
+			
+			
 	}).done(function(orderForm) {
-	    console.log(orderForm);
-	    recarregaCarrinho();
+			console.log(orderForm);
+			recarregaCarrinho();
 	});
 }
 
 function formatReal( valor )
 {
-        var tmp = valor+'';
-        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
-        if( tmp.length > 6 )
-                tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+				var tmp = valor+'';
+				tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+				if( tmp.length > 6 )
+								tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
 
-        return tmp;
+				return tmp;
 }
